@@ -18,15 +18,15 @@ namespace BookStore
         public Form1()
         {
             InitializeComponent();
-            /*
+            
             string server = "localhost";
             string database = "books";
             string user = "root";
-            string password = "";
-            */
+            string password = "2Va84y80xR64#%";
+            
 
-            //string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-            string connString = "config.txt";
+            string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
+            //string connString = "config.txt";
 
             conn = new MySqlConnection(connString);
 
@@ -69,7 +69,8 @@ namespace BookStore
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-            
+            AddBookForm FormBook = new AddBookForm();
+            FormBook.Show();
         }
 
         private void btnUpdateBook_Click(object sender, EventArgs e)

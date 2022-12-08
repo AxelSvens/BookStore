@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblAuthorId = new System.Windows.Forms.Label();
             this.btnBookAdd = new System.Windows.Forms.Button();
@@ -44,13 +44,13 @@
             this.txtTitle.Size = new System.Drawing.Size(202, 31);
             this.txtTitle.TabIndex = 0;
             // 
-            // textBox2
+            // txtAuthor
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(99, 123);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 31);
-            this.textBox2.TabIndex = 1;
+            this.txtAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAuthor.Location = new System.Drawing.Point(99, 123);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(202, 31);
+            this.txtAuthor.TabIndex = 1;
             // 
             // lblTitle
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this.btnBookAdd);
             this.Controls.Add(this.lblAuthorId);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtTitle);
             this.Name = "AddBookForm";
             this.Text = "AddBookForm";
@@ -117,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblAuthorId;
         private System.Windows.Forms.Button btnBookAdd;
