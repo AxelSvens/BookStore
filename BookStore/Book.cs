@@ -7,7 +7,6 @@ public class Book
 
         //Attribut
         /* private int id;
-         private int price;
          private string title;
          private int authorId;*/
 
@@ -15,7 +14,6 @@ public class Book
         //Properties
         public int Id { get; set; }
         public string Title { get; set; }
-        //public int Price { get; set; }
         public int AuthorId { get; set; }   
 
 
@@ -28,7 +26,7 @@ public class Book
         {
             this.Id = id;
             this.Title = title;
-            //this.Price = price;
+            this.Price = price;
             this.AuthorId = AuthorId;
                
 
