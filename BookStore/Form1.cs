@@ -78,8 +78,8 @@ namespace BookStore
             
             //Nollställer labels
             lblId.Text = "ID";
-            lblTitle.Text = "Title";
             lblAuthor.Text = "Author";
+            lblTitle.Text = "Title";
 
             //Öppna kopplingen
             conn.Open();
@@ -100,7 +100,7 @@ namespace BookStore
                 //Skriv ut Author Namn
                 lblAuthor.Text += Environment.NewLine + reader["author_name"];
                 
-                //new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
+                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
             }
 
             //Stänger kopplingen
@@ -157,7 +157,7 @@ namespace BookStore
                 //Skriv ut Author Name
                 lblAuthor.Text += Environment.NewLine + reader["author_name"];
 
-                //new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
+                new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
             }
 
             //Stänger kopplingen

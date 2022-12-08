@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Author
+namespace BookStore
 {
     internal class Author
     {
@@ -8,13 +12,13 @@ public class Author
         //Attribut
         /*private int id;
         private string name;*/
-        
+
 
 
         //Properties
         public int Id { get; set; }
         public string Name { get; set; }
-        
+
 
         //Statisk lista
         public static List<Author> authors = new List<Author>();

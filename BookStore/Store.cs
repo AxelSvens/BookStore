@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Store
+namespace BookStore
 {
     internal class Store
     {
@@ -37,3 +41,5 @@ public class Store
         }
     }
 }
+
+
