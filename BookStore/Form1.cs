@@ -87,12 +87,14 @@ namespace BookStore
             //Exekvera commando till DB
             MySqlDataReader reader = cmd.ExecuteReader();
 
+            int intID = 1;
             //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
 
                 //Skriv ut ID
-                lblId.Text += Environment.NewLine + reader["books_id"];
+                //lblId.Text += Environment.NewLine + reader["books_id"];
+                lblId.Text = Environment.NewLine + intID++;
 
                 //Skriv ut Bok Titeln
                 lblTitle.Text += Environment.NewLine + reader["books_title"];
@@ -124,7 +126,7 @@ namespace BookStore
             fm.Show();
         }
 
-        private void btnReadAuthor_Click(object sender, EventArgs e)
+        public void btnReadAuthor_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
             string strSql = "SELECT `author`.`author_id`, `author`.`author_name` " +
@@ -173,6 +175,12 @@ namespace BookStore
         private void btnDeleteAuthor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 fm = new Form2();
+            fm.Show();
         }
 
 
