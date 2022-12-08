@@ -88,13 +88,14 @@ namespace BookStore
             MySqlDataReader reader = cmd.ExecuteReader();
 
             int intID = 1;
+
             //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
 
                 //Skriv ut ID
                 //lblId.Text += Environment.NewLine + reader["books_id"];
-                lblId.Text = Environment.NewLine + intID++;
+                lblId.Text += Environment.NewLine + intID++;
 
                 //Skriv ut Bok Titeln
                 lblTitle.Text += Environment.NewLine + reader["books_title"];
@@ -150,12 +151,14 @@ namespace BookStore
             //Exekvera commando till DB
             MySqlDataReader reader = cmd.ExecuteReader();
 
+            int intID = 1;
+
             //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
 
                 //Skriv ut ID
-                lblId.Text += Environment.NewLine + reader["author_id"];
+                lblId.Text += Environment.NewLine + intID++;
 
                 //Skriv ut Author Name
                 lblAuthor.Text += Environment.NewLine + reader["author_name"];
