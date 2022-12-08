@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace BookStore
 {
     public partial class Form1 : Form
     {
+        MySqlConnection conn;
         public Form1()
         {
             InitializeComponent();
+            /*
+            string server = "localhost";
+            string database = "books";
+            string user = "root";
+            string password = "";
+            */
 
+            //string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
+            string connString = "config.txt";
+
+            conn = new MySqlConnection(connString);
 
         }
 
@@ -56,7 +69,7 @@ namespace BookStore
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnUpdateBook_Click(object sender, EventArgs e)

@@ -46,14 +46,10 @@
             this.lblHs = new System.Windows.Forms.Label();
             this.lblGt = new System.Windows.Forms.Label();
             this.btnHsRead = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblAuthor = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,7 +58,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -311,72 +307,13 @@
             this.btnHsRead.UseVisualStyleBackColor = true;
             this.btnHsRead.Click += new System.EventHandler(this.btnHsRead_Click);
             // 
-            // tableLayoutPanel3
+            // dataGridView1
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.Controls.Add(this.lblPrice, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblAuthor, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblName, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblId, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(776, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(510, 44);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(360, 0);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(147, 44);
-            this.lblPrice.TabIndex = 3;
-            this.lblPrice.Text = "Price";
-            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblAuthor
-            // 
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthor.Location = new System.Drawing.Point(207, 0);
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(147, 44);
-            this.lblAuthor.TabIndex = 2;
-            this.lblAuthor.Text = "Author";
-            this.lblAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(54, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(147, 44);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(3, 0);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(45, 44);
-            this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID";
-            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(776, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(510, 601);
+            this.dataGridView1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -390,8 +327,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,13 +336,8 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblGt;
         private System.Windows.Forms.Label lblHs;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblAuthor;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnDeleteAuthor;
         private System.Windows.Forms.Button btnUpdateAuthor;
         private System.Windows.Forms.Button btnAddAuthor;
@@ -421,6 +352,7 @@
         private System.Windows.Forms.Button btnHsDelete;
         private System.Windows.Forms.Button btnHsAdd;
         private System.Windows.Forms.Button btnHsRead;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
