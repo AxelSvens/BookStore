@@ -65,7 +65,7 @@ namespace BookStore
         private void btnReadBook_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `author`.`author_name` " +
+            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
                             "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
 
             //Skapa ett MySQLCommand objekt
@@ -106,21 +106,22 @@ namespace BookStore
             //Stänger kopplingen
             conn.Close();
         }
-
-        private void btnAddBook_Click(object sender, EventArgs e)
+        
+        private void btnAddBookOrAuthor_Click(object sender, EventArgs e)
         {
-            AddBookForm FormBook = new AddBookForm();
-            FormBook.Show();
+            AddBookOrAuthorForm fm = new AddBookOrAuthorForm();
+            fm.Show();
         }
 
-        private void btnUpdateBook_Click(object sender, EventArgs e)
+        private void btnUpdateBookOrAuthor_Click(object sender, EventArgs e)
         {
-
+            UpdateBookOrAuthorForm fm = new UpdateBookOrAuthorForm();
+            fm.Show();
         }
-
-        private void btnDeleteBook_Click(object sender, EventArgs e)
+        private void btnDeleteBookOrAuthor_Click(object sender, EventArgs e)
         {
-
+            DeleteBookOrAuthorForm fm = new DeleteBookOrAuthorForm();
+            fm.Show();
         }
 
         private void btnReadAuthor_Click(object sender, EventArgs e)
@@ -164,12 +165,6 @@ namespace BookStore
             conn.Close();
         }
 
-        private void btnAddAuthor_Click(object sender, EventArgs e)
-        {
-            AddAuthorForm FormAuthor = new AddAuthorForm();
-            FormAuthor.Show();
-        }
-
         private void btnUpdateAuthor_Click(object sender, EventArgs e)
         {
 
@@ -180,10 +175,9 @@ namespace BookStore
 
         }
 
-        private void lblAuthor_Click(object sender, EventArgs e)
-        {
 
-        }
+
+
 
         /*
         private void GridFill(string query)

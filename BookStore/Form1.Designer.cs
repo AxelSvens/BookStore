@@ -34,13 +34,10 @@
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDeleteAuthor = new System.Windows.Forms.Button();
-            this.btnUpdateAuthor = new System.Windows.Forms.Button();
-            this.btnAddAuthor = new System.Windows.Forms.Button();
             this.btnReadAuthor = new System.Windows.Forms.Button();
-            this.btnDeleteBook = new System.Windows.Forms.Button();
-            this.btnUpdateBook = new System.Windows.Forms.Button();
-            this.btnAddBook = new System.Windows.Forms.Button();
+            this.btnDeleteBookOrAuthor = new System.Windows.Forms.Button();
+            this.btnUpdateBookOrAuthor = new System.Windows.Forms.Button();
+            this.btnAddBookOrAuthor = new System.Windows.Forms.Button();
             this.btnReadBook = new System.Windows.Forms.Button();
             this.btnGtDelete = new System.Windows.Forms.Button();
             this.btnGtAdd = new System.Windows.Forms.Button();
@@ -136,13 +133,10 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.btnDeleteAuthor, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnUpdateAuthor, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnAddAuthor, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnReadAuthor, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnDeleteBook, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnUpdateBook, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnAddBook, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnDeleteBookOrAuthor, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnUpdateBookOrAuthor, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnAddBookOrAuthor, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnReadBook, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnGtDelete, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnGtAdd, 2, 1);
@@ -163,45 +157,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(767, 601);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // btnDeleteAuthor
-            // 
-            this.btnDeleteAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAuthor.Location = new System.Drawing.Point(593, 470);
-            this.btnDeleteAuthor.Margin = new System.Windows.Forms.Padding(20);
-            this.btnDeleteAuthor.Name = "btnDeleteAuthor";
-            this.btnDeleteAuthor.Size = new System.Drawing.Size(154, 111);
-            this.btnDeleteAuthor.TabIndex = 17;
-            this.btnDeleteAuthor.Text = "Delete Authors";
-            this.btnDeleteAuthor.UseVisualStyleBackColor = true;
-            this.btnDeleteAuthor.Click += new System.EventHandler(this.btnDeleteAuthor_Click);
-            // 
-            // btnUpdateAuthor
-            // 
-            this.btnUpdateAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdateAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAuthor.Location = new System.Drawing.Point(402, 470);
-            this.btnUpdateAuthor.Margin = new System.Windows.Forms.Padding(20);
-            this.btnUpdateAuthor.Name = "btnUpdateAuthor";
-            this.btnUpdateAuthor.Size = new System.Drawing.Size(151, 111);
-            this.btnUpdateAuthor.TabIndex = 16;
-            this.btnUpdateAuthor.Text = "Update Authors";
-            this.btnUpdateAuthor.UseVisualStyleBackColor = true;
-            this.btnUpdateAuthor.Click += new System.EventHandler(this.btnUpdateAuthor_Click);
-            // 
-            // btnAddAuthor
-            // 
-            this.btnAddAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAuthor.Location = new System.Drawing.Point(211, 470);
-            this.btnAddAuthor.Margin = new System.Windows.Forms.Padding(20);
-            this.btnAddAuthor.Name = "btnAddAuthor";
-            this.btnAddAuthor.Size = new System.Drawing.Size(151, 111);
-            this.btnAddAuthor.TabIndex = 15;
-            this.btnAddAuthor.Text = "Add Authors";
-            this.btnAddAuthor.UseVisualStyleBackColor = true;
-            this.btnAddAuthor.Click += new System.EventHandler(this.btnAddAuthor_Click);
-            // 
             // btnReadAuthor
             // 
             this.btnReadAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -215,44 +170,44 @@
             this.btnReadAuthor.UseVisualStyleBackColor = true;
             this.btnReadAuthor.Click += new System.EventHandler(this.btnReadAuthor_Click);
             // 
-            // btnDeleteBook
+            // btnDeleteBookOrAuthor
             // 
-            this.btnDeleteBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteBook.Location = new System.Drawing.Point(593, 320);
-            this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(20);
-            this.btnDeleteBook.Name = "btnDeleteBook";
-            this.btnDeleteBook.Size = new System.Drawing.Size(154, 110);
-            this.btnDeleteBook.TabIndex = 13;
-            this.btnDeleteBook.Text = "Delete Books";
-            this.btnDeleteBook.UseVisualStyleBackColor = true;
-            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
+            this.btnDeleteBookOrAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteBookOrAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteBookOrAuthor.Location = new System.Drawing.Point(593, 320);
+            this.btnDeleteBookOrAuthor.Margin = new System.Windows.Forms.Padding(20);
+            this.btnDeleteBookOrAuthor.Name = "btnDeleteBookOrAuthor";
+            this.btnDeleteBookOrAuthor.Size = new System.Drawing.Size(154, 110);
+            this.btnDeleteBookOrAuthor.TabIndex = 13;
+            this.btnDeleteBookOrAuthor.Text = "Delete Book Or Author";
+            this.btnDeleteBookOrAuthor.UseVisualStyleBackColor = true;
+            this.btnDeleteBookOrAuthor.Click += new System.EventHandler(this.btnDeleteBookOrAuthor_Click);
             // 
-            // btnUpdateBook
+            // btnUpdateBookOrAuthor
             // 
-            this.btnUpdateBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdateBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateBook.Location = new System.Drawing.Point(402, 320);
-            this.btnUpdateBook.Margin = new System.Windows.Forms.Padding(20);
-            this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(151, 110);
-            this.btnUpdateBook.TabIndex = 12;
-            this.btnUpdateBook.Text = "Update Books";
-            this.btnUpdateBook.UseVisualStyleBackColor = true;
-            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
+            this.btnUpdateBookOrAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdateBookOrAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateBookOrAuthor.Location = new System.Drawing.Point(402, 320);
+            this.btnUpdateBookOrAuthor.Margin = new System.Windows.Forms.Padding(20);
+            this.btnUpdateBookOrAuthor.Name = "btnUpdateBookOrAuthor";
+            this.btnUpdateBookOrAuthor.Size = new System.Drawing.Size(151, 110);
+            this.btnUpdateBookOrAuthor.TabIndex = 12;
+            this.btnUpdateBookOrAuthor.Text = "Update Book Or Author";
+            this.btnUpdateBookOrAuthor.UseVisualStyleBackColor = true;
+            this.btnUpdateBookOrAuthor.Click += new System.EventHandler(this.btnUpdateBookOrAuthor_Click);
             // 
-            // btnAddBook
+            // btnAddBookOrAuthor
             // 
-            this.btnAddBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBook.Location = new System.Drawing.Point(211, 320);
-            this.btnAddBook.Margin = new System.Windows.Forms.Padding(20);
-            this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(151, 110);
-            this.btnAddBook.TabIndex = 11;
-            this.btnAddBook.Text = "Add Books";
-            this.btnAddBook.UseVisualStyleBackColor = true;
-            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
+            this.btnAddBookOrAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddBookOrAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBookOrAuthor.Location = new System.Drawing.Point(211, 320);
+            this.btnAddBookOrAuthor.Margin = new System.Windows.Forms.Padding(20);
+            this.btnAddBookOrAuthor.Name = "btnAddBookOrAuthor";
+            this.btnAddBookOrAuthor.Size = new System.Drawing.Size(151, 110);
+            this.btnAddBookOrAuthor.TabIndex = 11;
+            this.btnAddBookOrAuthor.Text = "Add Book Or Author";
+            this.btnAddBookOrAuthor.UseVisualStyleBackColor = true;
+            this.btnAddBookOrAuthor.Click += new System.EventHandler(this.btnAddBookOrAuthor_Click);
             // 
             // btnReadBook
             // 
@@ -393,13 +348,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblGt;
         private System.Windows.Forms.Label lblHs;
-        private System.Windows.Forms.Button btnDeleteAuthor;
-        private System.Windows.Forms.Button btnUpdateAuthor;
-        private System.Windows.Forms.Button btnAddAuthor;
         private System.Windows.Forms.Button btnReadAuthor;
-        private System.Windows.Forms.Button btnDeleteBook;
-        private System.Windows.Forms.Button btnUpdateBook;
-        private System.Windows.Forms.Button btnAddBook;
+        private System.Windows.Forms.Button btnDeleteBookOrAuthor;
+        private System.Windows.Forms.Button btnUpdateBookOrAuthor;
+        private System.Windows.Forms.Button btnAddBookOrAuthor;
         private System.Windows.Forms.Button btnReadBook;
         private System.Windows.Forms.Button btnGtDelete;
         private System.Windows.Forms.Button btnGtAdd;

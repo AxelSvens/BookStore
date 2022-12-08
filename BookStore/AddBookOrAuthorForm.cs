@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
-    public partial class AddBookForm : Form
+    public partial class AddBookOrAuthorForm : Form
     {
         MySqlConnection conn;
-        public AddBookForm()
+        public AddBookOrAuthorForm()
         {
             InitializeComponent();
 
@@ -55,9 +55,36 @@ namespace BookStore
             this.Close();
         }
 
+        private void btnAuthorAdd_Click(object sender, EventArgs e)
+        {
+            //Hämta text från textfällt
+            string strName = txtAuthorName.Text;
+
+            //Skriva SQL Insert statment
+            string strSql = $"INSERT INTO author " +
+                            $"(`author_name`) " +
+                            $"VALUES ('{strName}')";
+
+            //Skapa en MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppna koppling till Databas
+            conn.Open();
+
+            //Skicka iväg MySQLCommand till Databas
+            cmd.ExecuteReader();
+
+            //Stänga koppling till Databas
+            conn.Close();
+
+            //Stänga fönstret
+            this.Close();
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
     }
 }
