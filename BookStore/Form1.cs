@@ -64,7 +64,47 @@ namespace BookStore
 
         private void btnReadBook_Click(object sender, EventArgs e)
         {
-            GridFill("BooksViewAll");
+            //Skriv SQL Select statement
+            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `author`.`author_name` " +
+                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Visar labels
+            lblId.Visible = true;
+            lblAuthor.Visible = true;
+            lblTitle.Visible = true;
+            
+            //Nollställer labels
+            lblId.Text = "ID";
+            lblTitle.Text = "Title";
+            lblAuthor.Text = "Author";
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
+            {
+
+                //Skriv ut ID
+                lblId.Text += Environment.NewLine + reader["books_id"];
+
+                //Skriv ut Bok Titeln
+                lblTitle.Text += Environment.NewLine + reader["books_title"];
+
+                //Skriv ut Author Namn
+                lblAuthor.Text += Environment.NewLine + reader["author_name"];
+                
+                //new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
+            }
+
+            //Stänger kopplingen
+            conn.Close();
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -85,7 +125,43 @@ namespace BookStore
 
         private void btnReadAuthor_Click(object sender, EventArgs e)
         {
+            //Skriv SQL Select statement
+            string strSql = "SELECT `author`.`author_id`, `author`.`author_name` " +
+                            "FROM author;";
 
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Visar labels
+            lblId.Visible = true;
+            lblAuthor.Visible = true;
+            lblTitle.Visible = false;
+
+            //Nollställer labels
+            lblId.Text = "ID";
+            lblAuthor.Text = "Author";
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
+            {
+
+                //Skriv ut ID
+                lblId.Text += Environment.NewLine + reader["author_id"];
+
+                //Skriv ut Author Name
+                lblAuthor.Text += Environment.NewLine + reader["author_name"];
+
+                //new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
+            }
+
+            //Stänger kopplingen
+            conn.Close();
         }
 
         private void btnAddAuthor_Click(object sender, EventArgs e)
@@ -103,8 +179,13 @@ namespace BookStore
         {
 
         }
-        
 
+        private void lblAuthor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /*
         private void GridFill(string query)
         {
             using (conn)
@@ -117,5 +198,6 @@ namespace BookStore
                 dgvView.DataSource = dtblBook;
             }
         }
+        */
     }
 }
