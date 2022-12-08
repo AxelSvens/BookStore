@@ -35,7 +35,7 @@ namespace BookStore
             int intAuthor = Convert.ToInt32(txtAuthor.Text);
 
             //Skriva SQL Insert statment
-            string strSql = $"INSERT INTO book " +
+            string strSql = $"INSERT INTO books " +
                             $"(`books_title`, `author_author_id`) " +
                             $"VALUES ('{strTitle}', {intAuthor})";
 
@@ -50,11 +50,13 @@ namespace BookStore
 
             //Stänga koppling till Databas
             conn.Close();
+
+            //Stänga fönstret
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            AddBookForm FormBook = new AddBookForm();
             this.Close();
         }
     }
