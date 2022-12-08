@@ -64,7 +64,7 @@ namespace BookStore
 
         private void btnReadBook_Click(object sender, EventArgs e)
         {
-
+            GridFill("BooksViewAll");
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -90,7 +90,8 @@ namespace BookStore
 
         private void btnAddAuthor_Click(object sender, EventArgs e)
         {
-
+            AddAuthorForm FormAuthor = new AddAuthorForm();
+            FormAuthor.Show();
         }
 
         private void btnUpdateAuthor_Click(object sender, EventArgs e)
@@ -101,6 +102,20 @@ namespace BookStore
         private void btnDeleteAuthor_Click(object sender, EventArgs e)
         {
 
+        }
+        
+
+        private void GridFill(string query)
+        {
+            using (conn)
+            {
+                conn.Open();
+                MySqlDataAdapter SqlDa = new MySqlDataAdapter(query, conn);
+                SqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataTable dtblBook = new DataTable();
+                SqlDa.Fill(dtblBook);
+                dgvView.DataSource = dtblBook;
+            }
         }
     }
 }

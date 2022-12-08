@@ -93,6 +93,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAuthorForm.Designer.cs">
+      <DependentUpon>AddAuthorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddAuthorForm.resx">
+      <DependentUpon>AddAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddBookForm.resx">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </EmbeddedResource>

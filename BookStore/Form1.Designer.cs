@@ -46,10 +46,10 @@
             this.lblHs = new System.Windows.Forms.Label();
             this.lblGt = new System.Windows.Forms.Label();
             this.btnHsRead = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgvView, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -307,13 +307,13 @@
             this.btnHsRead.UseVisualStyleBackColor = true;
             this.btnHsRead.Click += new System.EventHandler(this.btnHsRead_Click);
             // 
-            // dataGridView1
+            // dgvView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(776, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(510, 601);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvView.Location = new System.Drawing.Point(776, 3);
+            this.dgvView.Name = "dgvView";
+            this.dgvView.Size = new System.Drawing.Size(510, 601);
+            this.dgvView.TabIndex = 1;
             // 
             // Form1
             // 
@@ -327,7 +327,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,7 +352,7 @@
         private System.Windows.Forms.Button btnHsDelete;
         private System.Windows.Forms.Button btnHsAdd;
         private System.Windows.Forms.Button btnHsRead;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvView;
     }
 }
 
