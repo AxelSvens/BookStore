@@ -31,8 +31,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblId = new System.Windows.Forms.Label();
+            this.lblTitleOrAuthor = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReadAuthor = new System.Windows.Forms.Button();
             this.btnDeleteBookOrAuthor = new System.Windows.Forms.Button();
@@ -75,8 +75,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.47977F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.47977F));
             this.tableLayoutPanel3.Controls.Add(this.lblId, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblAuthor, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblTitle, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblTitleOrAuthor, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblAuthor, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(776, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -97,34 +97,31 @@
             this.lblId.TabIndex = 0;
             this.lblId.Text = "ID";
             this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblId.Visible = false;
+            // 
+            // lblTitleOrAuthor
+            // 
+            this.lblTitleOrAuthor.AutoSize = true;
+            this.lblTitleOrAuthor.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTitleOrAuthor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitleOrAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleOrAuthor.Location = new System.Drawing.Point(69, 0);
+            this.lblTitleOrAuthor.Name = "lblTitleOrAuthor";
+            this.lblTitleOrAuthor.Size = new System.Drawing.Size(215, 25);
+            this.lblTitleOrAuthor.TabIndex = 2;
+            this.lblTitleOrAuthor.Text = "Title";
+            this.lblTitleOrAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAuthor
             // 
             this.lblAuthor.AutoSize = true;
-            this.lblAuthor.BackColor = System.Drawing.SystemColors.Control;
             this.lblAuthor.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthor.Location = new System.Drawing.Point(69, 0);
+            this.lblAuthor.Location = new System.Drawing.Point(290, 0);
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(215, 25);
-            this.lblAuthor.TabIndex = 2;
+            this.lblAuthor.Size = new System.Drawing.Size(217, 25);
+            this.lblAuthor.TabIndex = 3;
             this.lblAuthor.Text = "Author";
             this.lblAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAuthor.Visible = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(290, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(217, 25);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Title";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -360,9 +357,9 @@
         private System.Windows.Forms.Button btnHsAdd;
         private System.Windows.Forms.Button btnHsRead;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.Label lblTitleOrAuthor;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblAuthor;
     }
 }
 

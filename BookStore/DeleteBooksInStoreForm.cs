@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
-    public partial class DeleteBookOrAuthorForm : Form
+    public partial class DeleteBooksInStoreForm : Form
     {
         MySqlConnection conn;
-        public DeleteBookOrAuthorForm()
+        public DeleteBooksInStoreForm()
         {
             InitializeComponent();
+            MySqlConnection conn;
             string server = "localhost";
             string database = "books";
             string user = "root";
@@ -30,10 +31,8 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-
             //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+            string strSql = $"CALL ViewBookByStore({1})";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
@@ -47,10 +46,10 @@ namespace BookStore
             //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
-
-                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
+                new StoreHasBooks(Convert.ToInt32(reader["store_store_id"]), Convert.ToInt32(reader["books_books_id"]));
             }
 
+            //Stänger kopplingen
             conn.Close();
 
             //Användaren anger nummret Count för den person som den vill ta bort.
@@ -62,7 +61,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"DELETE FROM `books` WHERE `books_id` = {selectedID};";
+            string sqlQuerry = $"CALL DeleteBooksInStore({1}, {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();
@@ -75,11 +74,6 @@ namespace BookStore
             conn.Close();
 
             this.Close();
-        }
-
-        private void btnAuthorUpdate_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

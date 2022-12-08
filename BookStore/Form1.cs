@@ -23,7 +23,7 @@ namespace BookStore
             string database = "books";
             string user = "root";
             string password = "2Va84y80xR64#%";
-            
+
 
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
             //string connString = "config.txt";
@@ -34,7 +34,7 @@ namespace BookStore
 
         private void btnHsRead_Click(object sender, EventArgs e)
         {
-
+            ReadBooksInStore(1);
         }
 
         private void btnHsAdd_Click(object sender, EventArgs e)
@@ -44,12 +44,12 @@ namespace BookStore
 
         private void btnHsDelete_Click(object sender, EventArgs e)
         {
-
+            DeleteBooksInStore();
         }
 
         private void btnGtRead_Click(object sender, EventArgs e)
         {
-
+            ReadBooksInStore(2);
         }
 
         private void btnGtAdd_Click(object sender, EventArgs e)
@@ -71,15 +71,12 @@ namespace BookStore
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Visar labels
-            lblId.Visible = true;
             lblAuthor.Visible = true;
-            lblTitle.Visible = true;
-            
+
             //Nollställer labels
             lblId.Text = "ID";
+            lblTitleOrAuthor.Text = "Title";
             lblAuthor.Text = "Author";
-            lblTitle.Text = "Title";
 
             //Öppna kopplingen
             conn.Open();
@@ -98,7 +95,7 @@ namespace BookStore
                 lblId.Text += Environment.NewLine + intID++;
 
                 //Skriv ut Bok Titeln
-                lblTitle.Text += Environment.NewLine + reader["books_title"];
+                lblTitleOrAuthor.Text += Environment.NewLine + reader["books_title"];
 
                 //Skriv ut Author Namn
                 lblAuthor.Text += Environment.NewLine + reader["author_name"];
@@ -109,25 +106,8 @@ namespace BookStore
             //Stänger kopplingen
             conn.Close();
         }
-        
-        private void btnAddBookOrAuthor_Click(object sender, EventArgs e)
-        {
-            AddBookOrAuthorForm fm = new AddBookOrAuthorForm();
-            fm.Show();
-        }
 
-        private void btnUpdateBookOrAuthor_Click(object sender, EventArgs e)
-        {
-            UpdateBookOrAuthorForm fm = new UpdateBookOrAuthorForm();
-            fm.Show();
-        }
-        private void btnDeleteBookOrAuthor_Click(object sender, EventArgs e)
-        {
-            DeleteBookOrAuthorForm fm = new DeleteBookOrAuthorForm();
-            fm.Show();
-        }
-
-        public void btnReadAuthor_Click(object sender, EventArgs e)
+        private void btnReadAuthor_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
             string strSql = "SELECT `author`.`author_id`, `author`.`author_name` " +
@@ -137,13 +117,13 @@ namespace BookStore
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
             //Visar labels
-            lblId.Visible = true;
-            lblAuthor.Visible = true;
-            lblTitle.Visible = false;
+            
+            lblAuthor.Visible = false;
+            
 
             //Nollställer labels
             lblId.Text = "ID";
-            lblAuthor.Text = "Author";
+            lblTitleOrAuthor.Text = "Author";
 
             //Öppna kopplingen
             conn.Open();
@@ -161,7 +141,7 @@ namespace BookStore
                 lblId.Text += Environment.NewLine + intID++;
 
                 //Skriv ut Author Name
-                lblAuthor.Text += Environment.NewLine + reader["author_name"];
+                lblTitleOrAuthor.Text += Environment.NewLine + reader["author_name"];
 
                 new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
             }
@@ -170,39 +150,100 @@ namespace BookStore
             conn.Close();
         }
 
-        private void btnUpdateAuthor_Click(object sender, EventArgs e)
+        private void btnAddBookOrAuthor_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnDeleteAuthor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 fm = new Form2();
+            AddBookOrAuthorForm fm = new AddBookOrAuthorForm();
             fm.Show();
         }
 
+        private void btnUpdateBookOrAuthor_Click(object sender, EventArgs e)
+        {
+            UpdateBookOrAuthorForm fm = new UpdateBookOrAuthorForm();
+            fm.Show();
+        }
 
+        private void btnDeleteBookOrAuthor_Click(object sender, EventArgs e)
+        {
+            DeleteBookOrAuthorForm fm = new DeleteBookOrAuthorForm();
+            fm.Show();
+        }
 
+        private void ReadBooksInStore(int x)
+        {
+            //Skriv SQL Select statement
+            string strSql = $"CALL ViewBookByStore({x})";
 
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            lblAuthor.Visible = true;
+
+            //Nollställer labels
+            lblId.Text = "ID";
+            lblTitleOrAuthor.Text = "Title";
+            lblAuthor.Text = "Author";
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            int intID = 1;
+
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
+            {
+
+                //Skriv ut ID
+                //lblId.Text += Environment.NewLine + reader["books_id"];
+                lblId.Text += Environment.NewLine + intID++;
+
+                //Skriv ut Bok Titeln
+                lblTitleOrAuthor.Text += Environment.NewLine + reader["books_title"];
+
+                //Skriv ut Author Namn
+                lblAuthor.Text += Environment.NewLine + reader["author_name"];
+
+                new StoreHasBooks(Convert.ToInt32(reader["store_store_id"]), Convert.ToInt32(reader["books_books_id"]));
+            }
+
+            //Stänger kopplingen
+            conn.Close();
+        }
+
+        private void DeleteBooksInStore()
+        {
+            DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
+            fm.Show();
+        }
 
         /*
-        private void GridFill(string query)
+        public void GetBookData()
         {
-            using (conn)
+            //Skriv SQL Select statement
+            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
+                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
             {
-                conn.Open();
-                MySqlDataAdapter SqlDa = new MySqlDataAdapter(query, conn);
-                SqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-                DataTable dtblBook = new DataTable();
-                SqlDa.Fill(dtblBook);
-                dgvView.DataSource = dtblBook;
+
+                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
             }
+
+            conn.Close();
         }
         */
+
     }
 }
