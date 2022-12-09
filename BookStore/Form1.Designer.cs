@@ -42,7 +42,7 @@
             this.btnHsDelete = new System.Windows.Forms.Button();
             this.btnHsAdd = new System.Windows.Forms.Button();
             this.btnHsRead = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbxStore = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,7 +131,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnHsDelete, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnHsAdd, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnHsRead, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.listBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbxStore, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -247,19 +247,19 @@
             this.btnHsRead.UseVisualStyleBackColor = true;
             this.btnHsRead.Click += new System.EventHandler(this.btnStoreRead_Click);
             // 
-            // listBox1
+            // lbxStore
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbxStore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbxStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxStore.FormattingEnabled = true;
+            this.lbxStore.ItemHeight = 25;
+            this.lbxStore.Items.AddRange(new object[] {
             "Halmstad",
             "Göteborg"});
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(185, 144);
-            this.listBox1.TabIndex = 16;
+            this.lbxStore.Location = new System.Drawing.Point(3, 3);
+            this.lbxStore.Name = "lbxStore";
+            this.lbxStore.Size = new System.Drawing.Size(185, 144);
+            this.lbxStore.TabIndex = 16;
             // 
             // Form1
             // 
@@ -294,7 +294,7 @@
         private System.Windows.Forms.Label lblTitleOrAuthor;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblAuthor;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbxStore;
     }
 }
 

@@ -35,7 +35,7 @@ namespace BookStore
             Form1 fm = new Form1();
             int listIndex = fm.listBoxIndex();
             //Skriv SQL Select statement
-            string strSql = $"CALL ViewBookByStore({})";
+            string strSql = $"CALL ViewBookByStore({listIndex})";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
@@ -46,12 +46,15 @@ namespace BookStore
             //Exekvera commando till DB
             MySqlDataReader reader = cmd.ExecuteReader();
 
+            
+
             //Använder en WhileLoop för att läsa varje rad
+
             while (reader.Read())
             {
                 new StoreHasBooks(Convert.ToInt32(reader["store_store_id"]), Convert.ToInt32(reader["books_books_id"]));
             }
-
+            
             //Stänger kopplingen
             conn.Close();
             
@@ -65,7 +68,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"CALL DeleteBookInStore({listIndex}, {selectedID});";
+            string sqlQuerry = $"CALL DeleteBookInStore({listIndex + 1}, {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();

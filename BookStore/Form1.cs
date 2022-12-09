@@ -33,7 +33,7 @@ namespace BookStore
         private void btnStoreRead_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
-            string strSql = $"CALL ViewBookByStore({listBox1.SelectedIndex + 1})";
+            string strSql = $"CALL ViewBookByStore({lbxStore.SelectedIndex + 1})";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
@@ -48,6 +48,8 @@ namespace BookStore
 
             //Exekvera commando till DB
             MySqlDataReader reader = cmd.ExecuteReader();
+
+            StoreHasBooks.storehasbooks.Clear();
 
             int intID = 1;
 
@@ -81,14 +83,14 @@ namespace BookStore
         {
             DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
             fm.Show();
-            int intIndex = listBox1.SelectedIndex;
         }
 
         private void btnReadBook_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
             string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id` " +
+                            "ORDER BY `books`.`books_id`;";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
@@ -189,8 +191,7 @@ namespace BookStore
 
         public int listBoxIndex()
         {
-            int intIndex = listBox1.SelectedIndex;
-            return intIndex + 1;
+            return lbxStore.SelectedIndex + 2;
         }
     }
 }
