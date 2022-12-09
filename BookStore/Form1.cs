@@ -26,7 +26,6 @@ namespace BookStore
 
 
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-            //string connString = "config.txt";
 
             conn = new MySqlConnection(connString);
 
@@ -44,7 +43,8 @@ namespace BookStore
 
         private void btnHsDelete_Click(object sender, EventArgs e)
         {
-            DeleteBooksInStore();
+            DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
+            fm.Show();
         }
 
         private void btnGtRead_Click(object sender, EventArgs e)
@@ -211,39 +211,6 @@ namespace BookStore
             //Stänger kopplingen
             conn.Close();
         }
-
-        private void DeleteBooksInStore()
-        {
-            DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
-            fm.Show();
-        }
-
-        /*
-        public void GetBookData()
-        {
-            //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
-
-            //Skapa ett MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
-
-            //Öppna kopplingen
-            conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            //Använder en WhileLoop för att läsa varje rad
-            while (reader.Read())
-            {
-
-                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
-            }
-
-            conn.Close();
-        }
-        */
 
     }
 }
