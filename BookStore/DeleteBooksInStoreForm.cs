@@ -35,7 +35,7 @@ namespace BookStore
             Form1 fm = new Form1();
             int listIndex = fm.listBoxIndex();
             //Skriv SQL Select statement
-            string strSql = $"CALL ViewBookByStore({listIndex})";
+            string strSql = $"CALL ViewBookByStore({})";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);

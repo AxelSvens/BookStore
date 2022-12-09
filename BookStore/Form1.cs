@@ -79,9 +79,9 @@ namespace BookStore
 
         private void btnStoreDelete_Click(object sender, EventArgs e)
         {
-            int intIndex = listBox1.SelectedIndex;
             DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
             fm.Show();
+            int intIndex = listBox1.SelectedIndex;
         }
 
         private void btnReadBook_Click(object sender, EventArgs e)
