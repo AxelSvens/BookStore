@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,46 @@ namespace BookStore
 
         private void btnAuthorUpdate_Click(object sender, EventArgs e)
         {
+            string strSql = "SELECT, `books`.`author_author_id`, `author`.`author_name`;";
+
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
+            {
+
+                new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
+            }
+
+            conn.Close();
+
+            int intAuthorId= Convert.ToInt32(txtAuthorId.Text);
+
+            int selectedId= Author.authors[intAuthorId - 1].Id;
+
+            //Anropa Stored Procuedure med det valda värdet -1's ID värde
+            // SQL Querry för INSERT
+            string sqlQuerry = $"DELETE FROM `books` WHERE `author_id` = {selectedId};";
+
+            // Skapa MySQLCOmmand objekt
+            conn.Open();
+            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+
+            //Exekvera MySQLCommand.
+            cmda.ExecuteReader();
+
+            //Stänger kopplingen
+            conn.Close();
+
+            this.Close();
+
 
         }
 
@@ -86,5 +127,7 @@ namespace BookStore
         {
             this.Close();
         }
+
+        
     }
 }

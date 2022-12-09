@@ -43,9 +43,10 @@
             // 
             this.lblBookId.AutoSize = true;
             this.lblBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookId.Location = new System.Drawing.Point(21, 137);
+            this.lblBookId.Location = new System.Drawing.Point(28, 169);
+            this.lblBookId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBookId.Name = "lblBookId";
-            this.lblBookId.Size = new System.Drawing.Size(34, 25);
+            this.lblBookId.Size = new System.Drawing.Size(44, 31);
             this.lblBookId.TabIndex = 23;
             this.lblBookId.Text = "ID";
             // 
@@ -53,45 +54,51 @@
             // 
             this.lblIdAuthor.AutoSize = true;
             this.lblIdAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdAuthor.Location = new System.Drawing.Point(356, 137);
+            this.lblIdAuthor.Location = new System.Drawing.Point(475, 169);
+            this.lblIdAuthor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdAuthor.Name = "lblIdAuthor";
-            this.lblIdAuthor.Size = new System.Drawing.Size(34, 25);
+            this.lblIdAuthor.Size = new System.Drawing.Size(44, 31);
             this.lblIdAuthor.TabIndex = 24;
             this.lblIdAuthor.Text = "ID";
             // 
             // txtAuthorId
             // 
             this.txtAuthorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthorId.Location = new System.Drawing.Point(396, 131);
+            this.txtAuthorId.Location = new System.Drawing.Point(528, 161);
+            this.txtAuthorId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAuthorId.Name = "txtAuthorId";
-            this.txtAuthorId.Size = new System.Drawing.Size(202, 31);
+            this.txtAuthorId.Size = new System.Drawing.Size(268, 37);
             this.txtAuthorId.TabIndex = 22;
             // 
             // txtBookId
             // 
             this.txtBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBookId.Location = new System.Drawing.Point(71, 131);
+            this.txtBookId.Location = new System.Drawing.Point(95, 161);
+            this.txtBookId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBookId.Name = "txtBookId";
-            this.txtBookId.Size = new System.Drawing.Size(202, 31);
+            this.txtBookId.Size = new System.Drawing.Size(268, 37);
             this.txtBookId.TabIndex = 21;
             // 
             // lblDeleteAuthor
             // 
             this.lblDeleteAuthor.AutoSize = true;
             this.lblDeleteAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteAuthor.Location = new System.Drawing.Point(391, 60);
+            this.lblDeleteAuthor.Location = new System.Drawing.Point(521, 74);
+            this.lblDeleteAuthor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeleteAuthor.Name = "lblDeleteAuthor";
-            this.lblDeleteAuthor.Size = new System.Drawing.Size(172, 29);
+            this.lblDeleteAuthor.Size = new System.Drawing.Size(210, 36);
             this.lblDeleteAuthor.TabIndex = 20;
             this.lblDeleteAuthor.Text = "Delete Author";
+            this.lblDeleteAuthor.Click += new System.EventHandler(this.lblDeleteAuthor_Click);
             // 
             // lblDeletBooks
             // 
             this.lblDeletBooks.AutoSize = true;
             this.lblDeletBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeletBooks.Location = new System.Drawing.Point(66, 60);
+            this.lblDeletBooks.Location = new System.Drawing.Point(88, 74);
+            this.lblDeletBooks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeletBooks.Name = "lblDeletBooks";
-            this.lblDeletBooks.Size = new System.Drawing.Size(170, 29);
+            this.lblDeletBooks.Size = new System.Drawing.Size(203, 36);
             this.lblDeletBooks.TabIndex = 19;
             this.lblDeletBooks.Text = "Delete Books";
             // 
@@ -99,9 +106,10 @@
             // 
             this.btnCancel.AutoSize = true;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(627, 203);
+            this.btnCancel.Location = new System.Drawing.Point(836, 250);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 35);
+            this.btnCancel.Size = new System.Drawing.Size(127, 43);
             this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -111,9 +119,10 @@
             // 
             this.btnAuthorUpdate.AutoSize = true;
             this.btnAuthorUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuthorUpdate.Location = new System.Drawing.Point(396, 203);
+            this.btnAuthorUpdate.Location = new System.Drawing.Point(528, 250);
+            this.btnAuthorUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAuthorUpdate.Name = "btnAuthorUpdate";
-            this.btnAuthorUpdate.Size = new System.Drawing.Size(97, 35);
+            this.btnAuthorUpdate.Size = new System.Drawing.Size(129, 43);
             this.btnAuthorUpdate.TabIndex = 26;
             this.btnAuthorUpdate.Text = "Delete";
             this.btnAuthorUpdate.UseVisualStyleBackColor = true;
@@ -123,9 +132,10 @@
             // 
             this.btnBookDelete.AutoSize = true;
             this.btnBookDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookDelete.Location = new System.Drawing.Point(71, 203);
+            this.btnBookDelete.Location = new System.Drawing.Point(95, 250);
+            this.btnBookDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBookDelete.Name = "btnBookDelete";
-            this.btnBookDelete.Size = new System.Drawing.Size(97, 35);
+            this.btnBookDelete.Size = new System.Drawing.Size(129, 43);
             this.btnBookDelete.TabIndex = 25;
             this.btnBookDelete.Text = "Delete";
             this.btnBookDelete.UseVisualStyleBackColor = true;
@@ -133,9 +143,9 @@
             // 
             // DeleteBookOrAuthorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 258);
+            this.ClientSize = new System.Drawing.Size(985, 318);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAuthorUpdate);
             this.Controls.Add(this.btnBookDelete);
@@ -145,6 +155,7 @@
             this.Controls.Add(this.txtBookId);
             this.Controls.Add(this.lblDeleteAuthor);
             this.Controls.Add(this.lblDeletBooks);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DeleteBookOrAuthorForm";
             this.Text = "DeleteBookOrAuthorForm";
             this.ResumeLayout(false);
