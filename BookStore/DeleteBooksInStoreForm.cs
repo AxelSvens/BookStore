@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySqlConnector;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,13 @@ namespace BookStore
 
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
             conn = new MySqlConnection(connString);
+            
         }
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-            
+            Form1 fm = new Form1();
+            int listIndex = fm.listBoxIndex();
             //Skriv SQL Select statement
             string strSql = $"CALL ViewBookByStore({1})";
 

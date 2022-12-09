@@ -39,14 +39,10 @@
             this.btnUpdateBookOrAuthor = new System.Windows.Forms.Button();
             this.btnAddBookOrAuthor = new System.Windows.Forms.Button();
             this.btnReadBook = new System.Windows.Forms.Button();
-            this.btnGtDelete = new System.Windows.Forms.Button();
-            this.btnGtAdd = new System.Windows.Forms.Button();
-            this.btnGtRead = new System.Windows.Forms.Button();
             this.btnHsDelete = new System.Windows.Forms.Button();
             this.btnHsAdd = new System.Windows.Forms.Button();
-            this.lblHs = new System.Windows.Forms.Label();
-            this.lblGt = new System.Windows.Forms.Label();
             this.btnHsRead = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -95,7 +91,6 @@
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(60, 25);
             this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID";
             this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitleOrAuthor
@@ -108,7 +103,6 @@
             this.lblTitleOrAuthor.Name = "lblTitleOrAuthor";
             this.lblTitleOrAuthor.Size = new System.Drawing.Size(215, 25);
             this.lblTitleOrAuthor.TabIndex = 2;
-            this.lblTitleOrAuthor.Text = "Title";
             this.lblTitleOrAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAuthor
@@ -120,7 +114,6 @@
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(217, 25);
             this.lblAuthor.TabIndex = 3;
-            this.lblAuthor.Text = "Author";
             this.lblAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -135,14 +128,10 @@
             this.tableLayoutPanel2.Controls.Add(this.btnUpdateBookOrAuthor, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnAddBookOrAuthor, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.btnReadBook, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnGtDelete, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnGtAdd, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnGtRead, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnHsDelete, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnHsAdd, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblHs, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblGt, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnHsRead, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.listBox1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -219,45 +208,6 @@
             this.btnReadBook.UseVisualStyleBackColor = true;
             this.btnReadBook.Click += new System.EventHandler(this.btnReadBook_Click);
             // 
-            // btnGtDelete
-            // 
-            this.btnGtDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGtDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGtDelete.Location = new System.Drawing.Point(593, 170);
-            this.btnGtDelete.Margin = new System.Windows.Forms.Padding(20);
-            this.btnGtDelete.Name = "btnGtDelete";
-            this.btnGtDelete.Size = new System.Drawing.Size(154, 110);
-            this.btnGtDelete.TabIndex = 9;
-            this.btnGtDelete.Text = "Remove Books";
-            this.btnGtDelete.UseVisualStyleBackColor = true;
-            this.btnGtDelete.Click += new System.EventHandler(this.btnGtDelete_Click);
-            // 
-            // btnGtAdd
-            // 
-            this.btnGtAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGtAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGtAdd.Location = new System.Drawing.Point(402, 170);
-            this.btnGtAdd.Margin = new System.Windows.Forms.Padding(20);
-            this.btnGtAdd.Name = "btnGtAdd";
-            this.btnGtAdd.Size = new System.Drawing.Size(151, 110);
-            this.btnGtAdd.TabIndex = 8;
-            this.btnGtAdd.Text = "Add Books";
-            this.btnGtAdd.UseVisualStyleBackColor = true;
-            this.btnGtAdd.Click += new System.EventHandler(this.btnGtAdd_Click);
-            // 
-            // btnGtRead
-            // 
-            this.btnGtRead.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGtRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGtRead.Location = new System.Drawing.Point(211, 170);
-            this.btnGtRead.Margin = new System.Windows.Forms.Padding(20);
-            this.btnGtRead.Name = "btnGtRead";
-            this.btnGtRead.Size = new System.Drawing.Size(151, 110);
-            this.btnGtRead.TabIndex = 7;
-            this.btnGtRead.Text = "View Books";
-            this.btnGtRead.UseVisualStyleBackColor = true;
-            this.btnGtRead.Click += new System.EventHandler(this.btnGtRead_Click);
-            // 
             // btnHsDelete
             // 
             this.btnHsDelete.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -269,7 +219,7 @@
             this.btnHsDelete.TabIndex = 6;
             this.btnHsDelete.Text = "Remove Books";
             this.btnHsDelete.UseVisualStyleBackColor = true;
-            this.btnHsDelete.Click += new System.EventHandler(this.btnHsDelete_Click);
+            this.btnHsDelete.Click += new System.EventHandler(this.btnStoreDelete_Click);
             // 
             // btnHsAdd
             // 
@@ -282,31 +232,7 @@
             this.btnHsAdd.TabIndex = 5;
             this.btnHsAdd.Text = "Add Books";
             this.btnHsAdd.UseVisualStyleBackColor = true;
-            this.btnHsAdd.Click += new System.EventHandler(this.btnHsAdd_Click);
-            // 
-            // lblHs
-            // 
-            this.lblHs.AutoSize = true;
-            this.lblHs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHs.Location = new System.Drawing.Point(3, 0);
-            this.lblHs.Name = "lblHs";
-            this.lblHs.Size = new System.Drawing.Size(185, 150);
-            this.lblHs.TabIndex = 1;
-            this.lblHs.Text = "Halmstad";
-            this.lblHs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblGt
-            // 
-            this.lblGt.AutoSize = true;
-            this.lblGt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGt.Location = new System.Drawing.Point(3, 150);
-            this.lblGt.Name = "lblGt";
-            this.lblGt.Size = new System.Drawing.Size(185, 150);
-            this.lblGt.TabIndex = 3;
-            this.lblGt.Text = "Göteborg";
-            this.lblGt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnHsAdd.Click += new System.EventHandler(this.btnStoreAdd_Click);
             // 
             // btnHsRead
             // 
@@ -319,7 +245,21 @@
             this.btnHsRead.TabIndex = 4;
             this.btnHsRead.Text = "View Books";
             this.btnHsRead.UseVisualStyleBackColor = true;
-            this.btnHsRead.Click += new System.EventHandler(this.btnHsRead_Click);
+            this.btnHsRead.Click += new System.EventHandler(this.btnStoreRead_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Items.AddRange(new object[] {
+            "Halmstad",
+            "Göteborg"});
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(185, 144);
+            this.listBox1.TabIndex = 16;
             // 
             // Form1
             // 
@@ -334,7 +274,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -343,16 +282,11 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lblGt;
-        private System.Windows.Forms.Label lblHs;
         private System.Windows.Forms.Button btnReadAuthor;
         private System.Windows.Forms.Button btnDeleteBookOrAuthor;
         private System.Windows.Forms.Button btnUpdateBookOrAuthor;
         private System.Windows.Forms.Button btnAddBookOrAuthor;
         private System.Windows.Forms.Button btnReadBook;
-        private System.Windows.Forms.Button btnGtDelete;
-        private System.Windows.Forms.Button btnGtAdd;
-        private System.Windows.Forms.Button btnGtRead;
         private System.Windows.Forms.Button btnHsDelete;
         private System.Windows.Forms.Button btnHsAdd;
         private System.Windows.Forms.Button btnHsRead;
@@ -360,6 +294,7 @@
         private System.Windows.Forms.Label lblTitleOrAuthor;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
