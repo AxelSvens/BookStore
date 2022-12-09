@@ -189,7 +189,8 @@ namespace BookStore
 
         public int listBoxIndex()
         {
-            return listBox1.SelectedIndex;
+            int intIndex = listBox1.SelectedIndex;
+            return intIndex + 1;
         }
     }
 }
