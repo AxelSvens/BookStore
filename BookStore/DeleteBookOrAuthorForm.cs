@@ -95,32 +95,6 @@ namespace BookStore
             while (reader.Read())
             {
 
-                new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
-            }
-
-            conn.Close();
-
-            int intAuthorId= Convert.ToInt32(txtAuthorId.Text);
-
-            int selectedId= Author.authors[intAuthorId - 1].Id;
-
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för INSERT
-            string sqlQuerry = $"DELETE FROM `books` WHERE `author_id` = {selectedId};";
-
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
-            conn.Close();
-
-            this.Close();
-
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
