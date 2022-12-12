@@ -18,5 +18,10 @@ namespace BookStore
 
             index.Add(this);
         }
+
+        public static implicit operator int(Index v)
+        {
+            return v.Number;
+        }
     }
 }

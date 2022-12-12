@@ -34,6 +34,8 @@ namespace BookStore
         {
             //Användaren anger nummret Count för den person som den vill ta bort.
 
+            int ListIndex = Index.index[0];
+            
             int intBookId = Convert.ToInt32(txtBookId.Text);
 
             //Hämta ID värdet av det valda objektet
@@ -41,7 +43,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"CALL DeleteBookInStore({Index.i1}, {selectedID});";
+            string sqlQuerry = $"CALL DeleteBookInStore({ListIndex}, {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();
