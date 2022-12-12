@@ -76,7 +76,11 @@ namespace BookStore
 
         private void btnStoreAdd_Click(object sender, EventArgs e)
         {
-
+            Index.index.Clear();
+            new Index(lbxStore.SelectedIndex + 1);
+            AddBookToStoreForm fm = new AddBookToStoreForm();
+            btnReadBook_Click(sender, e);
+            fm.Show();
         }
 
         private void btnStoreDelete_Click(object sender, EventArgs e)

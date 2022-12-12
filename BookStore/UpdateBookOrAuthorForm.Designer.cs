@@ -141,6 +141,7 @@
             this.btnAuthorUpdate.TabIndex = 16;
             this.btnAuthorUpdate.Text = "Update";
             this.btnAuthorUpdate.UseVisualStyleBackColor = true;
+            this.btnAuthorUpdate.Click += new System.EventHandler(this.btnAuthorUpdate_Click);
             // 
             // btnCancel
             // 
@@ -212,7 +213,6 @@
             this.Controls.Add(this.lblUpdateBooks);
             this.Name = "UpdateBookOrAuthorForm";
             this.Text = "UpdateBookOrAuthorForm";
-            this.Load += new System.EventHandler(this.UpdateBookOrAuthor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

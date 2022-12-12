@@ -30,57 +30,56 @@ namespace BookStore
         private void btnBookUpdate_Click(object sender, EventArgs e)
         {
             
-            
-                //Skriv SQL Select statement
-                string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                                "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+            //Skriv SQL Select statement
+            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
+                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
 
-                //Skapa ett MySQLCommand objekt
-                MySqlCommand cmd = new MySqlCommand(strSql, conn);
+            //Skapa ett MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-                //Öppna kopplingen
-                conn.Open();
+            //Öppna kopplingen
+            conn.Open();
 
-                //Exekvera commando till DB
-                MySqlDataReader reader = cmd.ExecuteReader();
+            //Exekvera commando till DB
+            MySqlDataReader reader = cmd.ExecuteReader();
 
-                //Använder en WhileLoop för att läsa varje rad
-                while (reader.Read())
-                {
+            //Använder en WhileLoop för att läsa varje rad
+            while (reader.Read())
+            {
 
-                    new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
-                }
+                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
+            }
 
-                conn.Close();
+            conn.Close();
 
-                //Användaren anger nummret Count för den bok de vill uppdatera.
+            //Användaren anger nummret Count för den bok de vill uppdatera.
 
-                int intBookId = Convert.ToInt32(txtBookId.Text);
+            int intBookId = Convert.ToInt32(txtBookId.Text);
 
-                //Hämta ID värdet av det valda objektet
-                int selectedID = Book.books[intBookId - 1].Id;
+            //Hämta ID värdet av det valda objektet
+            int selectedID = Book.books[intBookId - 1].Id;
 
-                //Anropa Stored Procuedure med det valda värdet -1's ID värde
-                // SQL Querry för UPDATE
-                string sqlQuerry = "UPDATE books SET books_title= '" + this.txtTitle.Text + "', author_author_id= '" + int.Parse(this.txtAuthor.Text) + "' WHERE books_id = '" + this.txtBookId.Text + "';";
+            //Anropa Stored Procuedure med det valda värdet -1's ID värde
+            // SQL Querry för UPDATE
+            string sqlQuerry = $"UPDATE books SET books_title = {this.txtTitle.Text}" +
+                               $", author_author_id= {int.Parse(this.txtAuthor.Text)} " +
+                               $"WHERE books_id = {this.txtBookId.Text};";
 
-                // Skapa MySQLCOmmand objekt
-                conn.Open();
-                MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+            // Skapa MySQLCOmmand objekt
+            conn.Open();
+            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
 
-                //Exekvera MySQLCommand.
-                cmda.ExecuteReader();
+            //Exekvera MySQLCommand.
+            cmda.ExecuteReader();
 
-                //Stänger kopplingen
-                conn.Close();
+            //Stänger kopplingen
+            conn.Close();
 
-                this.Close();
-
-            
+            this.Close();
 
         }
 
-        private void UpdateBookOrAuthor_Load(object sender, EventArgs e)
+        private void btnAuthorUpdate_Click(object sender, EventArgs e)
         {
 
         }
@@ -89,5 +88,7 @@ namespace BookStore
         {
             this.Close();
         }
+
+
     }
 }

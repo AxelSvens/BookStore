@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySqlConnector;
+using Org.BouncyCastle.Utilities.Collections;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,15 +30,17 @@ namespace BookStore
 
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
+            int ListIndex = Index.index[0];
+
             int intBookId = Convert.ToInt32(txtBookId.Text);
 
             //Hämta ID värdet av det valda objektet
-            int selectedID = StoreHasBooks.storehasbooks[intBookId - 1].Books_BooksId;
+            int selectedID = Book.books[intBookId - 1].Id;
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"INSERT INTO books "$"`author_author_id`) " +
-                            $"VALUES"; {selectedID});";
+            string sqlQuerry = $"INSERT INTO `books`.`store_has_books` (`store_store_id`, `books_books_id`) " +
+                               $"VALUES({ListIndex}, {selectedID})";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();

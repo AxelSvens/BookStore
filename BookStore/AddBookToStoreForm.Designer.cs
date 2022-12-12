@@ -31,7 +31,7 @@
             this.lblAddBooks = new System.Windows.Forms.Label();
             this.btnBookAdd = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtBookId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblAddBooks
@@ -66,13 +66,13 @@
             this.lblId.TabIndex = 9;
             this.lblId.Text = "ID";
             // 
-            // txtId
+            // txtBookId
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(115, 101);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(202, 31);
-            this.txtId.TabIndex = 7;
+            this.txtBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBookId.Location = new System.Drawing.Point(115, 101);
+            this.txtBookId.Name = "txtBookId";
+            this.txtBookId.Size = new System.Drawing.Size(202, 31);
+            this.txtBookId.TabIndex = 7;
             // 
             // AddBookToStoreForm
             // 
@@ -82,7 +82,7 @@
             this.Controls.Add(this.lblAddBooks);
             this.Controls.Add(this.btnBookAdd);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtBookId);
             this.Name = "AddBookToStoreForm";
             this.Text = "AddBookToStoreForm";
             this.ResumeLayout(false);
@@ -95,6 +95,6 @@
         private System.Windows.Forms.Label lblAddBooks;
         private System.Windows.Forms.Button btnBookAdd;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtBookId;
     }
 }
