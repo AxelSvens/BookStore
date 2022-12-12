@@ -83,7 +83,7 @@ namespace BookStore
 
         private void btnAuthorDelete_Click(object sender, EventArgs e)
         {
-            string strSql = "SELECT, `books`.`author_author_id`, `author`.`author_name`;";
+            string strSql = "SELECT * FROM author;";
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
@@ -111,7 +111,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"DELETE FROM `books` WHERE `author_id` = {selectedId};";
+            string sqlQuerry = $"DELETE FROM `author` WHERE `author_id` = {selectedId};";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();

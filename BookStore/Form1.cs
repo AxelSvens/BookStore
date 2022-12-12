@@ -82,7 +82,9 @@ namespace BookStore
         private void btnStoreDelete_Click(object sender, EventArgs e)
         {
             DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
+            btnStoreRead_Click(sender, e);
             fm.Show();
+
         }
 
         private void btnReadBook_Click(object sender, EventArgs e)
@@ -187,11 +189,6 @@ namespace BookStore
         {
             DeleteBookOrAuthorForm fm = new DeleteBookOrAuthorForm();
             fm.Show();
-        }
-
-        public int listBoxIndex()
-        {
-            return lbxStore.SelectedIndex + 2;
         }
     }
 }
