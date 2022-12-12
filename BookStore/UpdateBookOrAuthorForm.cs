@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,16 +55,22 @@ namespace BookStore
 
             //Användaren anger nummret Count för den bok de vill uppdatera.
 
+            string bookTitle = txtTitle.Text;
+            int authorId = Convert.ToInt32(txtAuthor.Text);
+
+            
             int intBookId = Convert.ToInt32(txtBookId.Text);
 
             //Hämta ID värdet av det valda objektet
+
             int selectedID = Book.books[intBookId - 1].Id;
+            //int selectedAuthor = Author.authors[]
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för UPDATE
-            string sqlQuerry = $"UPDATE books SET books_title = {this.txtTitle.Text}" +
-                               $", author_author_id= {int.Parse(this.txtAuthor.Text)} " +
-                               $"WHERE books_id = {this.txtBookId.Text};";
+            string sqlQuerry = $"UPDATE `books`.`books` " +
+                               $"SET `books_title` = '{bookTitle}', `author_author_id` = {authorId} " +
+                               $"WHERE(`books_id` = {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();
