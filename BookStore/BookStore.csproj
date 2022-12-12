@@ -99,6 +99,12 @@
     <Compile Include="AddBookOrAuthorForm.Designer.cs">
       <DependentUpon>AddBookOrAuthorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddBookToStoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBookToStoreForm.Designer.cs">
+      <DependentUpon>AddBookToStoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="DeleteBookOrAuthorForm.cs">
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="AddBookOrAuthorForm.resx">
       <DependentUpon>AddBookOrAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBookToStoreForm.resx">
+      <DependentUpon>AddBookToStoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteBookOrAuthorForm.resx">
       <DependentUpon>DeleteBookOrAuthorForm.cs</DependentUpon>
