@@ -35,7 +35,7 @@ namespace BookStore
             string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
                             "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id` " +
                             "ORDER BY `books`.`books_id`;";
-            
+
 
             //Skapa ett MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);

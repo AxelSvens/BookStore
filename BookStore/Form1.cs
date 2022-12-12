@@ -81,6 +81,9 @@ namespace BookStore
 
         private void btnStoreDelete_Click(object sender, EventArgs e)
         {
+
+            Index.index.Clear();
+            new Index(lbxStore.SelectedIndex + 1);
             DeleteBooksInStoreForm fm = new DeleteBooksInStoreForm();
             btnStoreRead_Click(sender, e);
             fm.Show();

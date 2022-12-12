@@ -16,5 +16,10 @@ namespace BookStore
         {
             InitializeComponent();
         }
+
+        private void btnBookAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

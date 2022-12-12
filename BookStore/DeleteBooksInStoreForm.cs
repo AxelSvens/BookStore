@@ -32,32 +32,6 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-            Form1 fm = new Form1();
-            //Skriv SQL Select statement
-            string strSql = $"CALL ViewBookByStore({1})";
-
-            //Skapa ett MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
-
-            //Öppna kopplingen
-            conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            
-
-            //Använder en WhileLoop för att läsa varje rad
-
-            while (reader.Read())
-            {
-                new StoreHasBooks(Convert.ToInt32(reader["store_store_id"]), Convert.ToInt32(reader["books_books_id"]));
-            }
-            
-            //Stänger kopplingen
-            conn.Close();
-            
-
             //Användaren anger nummret Count för den person som den vill ta bort.
 
             int intBookId = Convert.ToInt32(txtBookId.Text);
@@ -67,7 +41,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"CALL DeleteBookInStore({1}, {selectedID});";
+            string sqlQuerry = $"CALL DeleteBookInStore({Index.i1}, {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();
