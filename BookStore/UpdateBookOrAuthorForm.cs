@@ -50,36 +50,50 @@ namespace BookStore
             //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
-
                 new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
             }
 
             conn.Close();
 
-            //Användaren anger nummret Count för den bok de vill uppdatera.
-
             string bookTitle = txtTitle.Text;
-            int authorId = Convert.ToInt32(txtAuthor.Text);
+            string authorName = txtAuthor.Text;
+
+            int intBookId = Convert.ToInt32(txtBookId.Text);
+            int selectedID = Book.books[intBookId - 1].Id;
+
+            string sqlQue = $"SELECT author_id FROM author WHERE author_name = '{authorName}'";
+            MySqlCommand cmdb = new MySqlCommand(sqlQue, conn);
+
+            //Öppna kopplingen
+            conn.Open();
+
+            //Exekvera commando till DB
+            MySqlDataReader readera = cmdb.ExecuteReader();
+            int authorId = 0;
+
+            while (readera.Read())
+            {
+                authorId = Convert.ToInt32(readera["author_id"]);
+            }
+
+            conn.Close();
+
 
             
-            int intBookId = Convert.ToInt32(txtBookId.Text);
-
-            //Hämta ID värdet av det valda objektet
-
-            int selectedID = Book.books[intBookId - 1].Id;
-            //int selectedAuthor = Author.authors[]
-
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för UPDATE
+
+
             string sqlQuerry = $"UPDATE `books` " +
-                               $"SET `books_title` = '{bookTitle}', `author_author_id` = {authorId} " +
+                               $"SET `books_title` = '{bookTitle}', `author_author_id` = '{authorId}' " +
                                $"WHERE(`books_id` = {selectedID});";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();
             MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+            //MySqlCommand cmdb = new MySqlCommand(sqlQue, conn);
 
             //Exekvera MySQLCommand.
+            //cmdb.ExecuteReader();
             cmda.ExecuteReader();
 
             //Stänger kopplingen

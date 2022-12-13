@@ -49,9 +49,10 @@
             // 
             this.lblUpdateBooks.AutoSize = true;
             this.lblUpdateBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateBooks.Location = new System.Drawing.Point(131, 52);
+            this.lblUpdateBooks.Location = new System.Drawing.Point(325, 95);
+            this.lblUpdateBooks.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUpdateBooks.Name = "lblUpdateBooks";
-            this.lblUpdateBooks.Size = new System.Drawing.Size(177, 29);
+            this.lblUpdateBooks.Size = new System.Drawing.Size(339, 55);
             this.lblUpdateBooks.TabIndex = 7;
             this.lblUpdateBooks.Text = "Update Books";
             // 
@@ -59,27 +60,30 @@
             // 
             this.lblUpdateAuthor.AutoSize = true;
             this.lblUpdateAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateAuthor.Location = new System.Drawing.Point(456, 52);
+            this.lblUpdateAuthor.Location = new System.Drawing.Point(975, 95);
+            this.lblUpdateAuthor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUpdateAuthor.Name = "lblUpdateAuthor";
-            this.lblUpdateAuthor.Size = new System.Drawing.Size(179, 29);
+            this.lblUpdateAuthor.Size = new System.Drawing.Size(348, 55);
             this.lblUpdateAuthor.TabIndex = 8;
             this.lblUpdateAuthor.Text = "Update Author";
             // 
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(136, 198);
+            this.txtTitle.Location = new System.Drawing.Point(335, 376);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(202, 31);
+            this.txtTitle.Size = new System.Drawing.Size(400, 55);
             this.txtTitle.TabIndex = 9;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(62, 201);
+            this.lblTitle.Location = new System.Drawing.Point(187, 382);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(58, 25);
+            this.lblTitle.Size = new System.Drawing.Size(106, 48);
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "Title";
             // 
@@ -87,45 +91,50 @@
             // 
             this.lblAuthorId.AutoSize = true;
             this.lblAuthorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthorId.Location = new System.Drawing.Point(10, 284);
+            this.lblAuthorId.Location = new System.Drawing.Point(23, 542);
+            this.lblAuthorId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAuthorId.Name = "lblAuthorId";
-            this.lblAuthorId.Size = new System.Drawing.Size(110, 25);
+            this.lblAuthorId.Size = new System.Drawing.Size(276, 48);
             this.lblAuthorId.TabIndex = 11;
-            this.lblAuthorId.Text = "Author ID";
+            this.lblAuthorId.Text = "Author Name";
             // 
             // txtAuthor
             // 
             this.txtAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthor.Location = new System.Drawing.Point(136, 281);
+            this.txtAuthor.Location = new System.Drawing.Point(335, 535);
+            this.txtAuthor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(202, 31);
+            this.txtAuthor.Size = new System.Drawing.Size(400, 55);
             this.txtAuthor.TabIndex = 12;
             // 
             // lblAuthorName
             // 
             this.lblAuthorName.AutoSize = true;
             this.lblAuthorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthorName.Location = new System.Drawing.Point(383, 201);
+            this.lblAuthorName.Location = new System.Drawing.Point(829, 382);
+            this.lblAuthorName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAuthorName.Name = "lblAuthorName";
-            this.lblAuthorName.Size = new System.Drawing.Size(72, 25);
+            this.lblAuthorName.Size = new System.Drawing.Size(135, 48);
             this.lblAuthorName.TabIndex = 13;
             this.lblAuthorName.Text = "Name";
             // 
             // txtAuthorName
             // 
             this.txtAuthorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthorName.Location = new System.Drawing.Point(461, 195);
+            this.txtAuthorName.Location = new System.Drawing.Point(985, 370);
+            this.txtAuthorName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtAuthorName.Name = "txtAuthorName";
-            this.txtAuthorName.Size = new System.Drawing.Size(202, 31);
+            this.txtAuthorName.Size = new System.Drawing.Size(400, 55);
             this.txtAuthorName.TabIndex = 14;
             // 
             // btnBookUpdate
             // 
             this.btnBookUpdate.AutoSize = true;
             this.btnBookUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookUpdate.Location = new System.Drawing.Point(136, 366);
+            this.btnBookUpdate.Location = new System.Drawing.Point(335, 699);
+            this.btnBookUpdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnBookUpdate.Name = "btnBookUpdate";
-            this.btnBookUpdate.Size = new System.Drawing.Size(97, 35);
+            this.btnBookUpdate.Size = new System.Drawing.Size(194, 67);
             this.btnBookUpdate.TabIndex = 15;
             this.btnBookUpdate.Text = "Update";
             this.btnBookUpdate.UseVisualStyleBackColor = true;
@@ -135,9 +144,10 @@
             // 
             this.btnAuthorUpdate.AutoSize = true;
             this.btnAuthorUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuthorUpdate.Location = new System.Drawing.Point(461, 366);
+            this.btnAuthorUpdate.Location = new System.Drawing.Point(985, 699);
+            this.btnAuthorUpdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAuthorUpdate.Name = "btnAuthorUpdate";
-            this.btnAuthorUpdate.Size = new System.Drawing.Size(97, 35);
+            this.btnAuthorUpdate.Size = new System.Drawing.Size(194, 67);
             this.btnAuthorUpdate.TabIndex = 16;
             this.btnAuthorUpdate.Text = "Update";
             this.btnAuthorUpdate.UseVisualStyleBackColor = true;
@@ -147,9 +157,10 @@
             // 
             this.btnCancel.AutoSize = true;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(737, 366);
+            this.btnCancel.Location = new System.Drawing.Point(1537, 699);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 35);
+            this.btnCancel.Size = new System.Drawing.Size(190, 67);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -159,9 +170,10 @@
             // 
             this.lblIdAuthor.AutoSize = true;
             this.lblIdAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdAuthor.Location = new System.Drawing.Point(421, 129);
+            this.lblIdAuthor.Location = new System.Drawing.Point(905, 243);
+            this.lblIdAuthor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblIdAuthor.Name = "lblIdAuthor";
-            this.lblIdAuthor.Size = new System.Drawing.Size(34, 25);
+            this.lblIdAuthor.Size = new System.Drawing.Size(64, 48);
             this.lblIdAuthor.TabIndex = 18;
             this.lblIdAuthor.Text = "ID";
             // 
@@ -169,33 +181,36 @@
             // 
             this.lblBookId.AutoSize = true;
             this.lblBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookId.Location = new System.Drawing.Point(86, 129);
+            this.lblBookId.Location = new System.Drawing.Point(235, 243);
+            this.lblBookId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblBookId.Name = "lblBookId";
-            this.lblBookId.Size = new System.Drawing.Size(34, 25);
+            this.lblBookId.Size = new System.Drawing.Size(64, 48);
             this.lblBookId.TabIndex = 18;
             this.lblBookId.Text = "ID";
             // 
             // txtBookId
             // 
             this.txtBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBookId.Location = new System.Drawing.Point(136, 123);
+            this.txtBookId.Location = new System.Drawing.Point(335, 232);
+            this.txtBookId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtBookId.Name = "txtBookId";
-            this.txtBookId.Size = new System.Drawing.Size(202, 31);
+            this.txtBookId.Size = new System.Drawing.Size(400, 55);
             this.txtBookId.TabIndex = 9;
             // 
             // txtAuthorId
             // 
             this.txtAuthorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthorId.Location = new System.Drawing.Point(461, 123);
+            this.txtAuthorId.Location = new System.Drawing.Point(985, 232);
+            this.txtAuthorId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtAuthorId.Name = "txtAuthorId";
-            this.txtAuthorId.Size = new System.Drawing.Size(202, 31);
+            this.txtAuthorId.Size = new System.Drawing.Size(400, 55);
             this.txtAuthorId.TabIndex = 14;
             // 
             // UpdateBookOrAuthorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 463);
+            this.ClientSize = new System.Drawing.Size(1824, 890);
             this.Controls.Add(this.lblBookId);
             this.Controls.Add(this.lblIdAuthor);
             this.Controls.Add(this.btnCancel);
@@ -211,6 +226,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblUpdateAuthor);
             this.Controls.Add(this.lblUpdateBooks);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "UpdateBookOrAuthorForm";
             this.Text = "UpdateBookOrAuthorForm";
             this.ResumeLayout(false);
