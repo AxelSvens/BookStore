@@ -97,7 +97,7 @@ namespace BookStore
         private void btnReadBook_Click(object sender, EventArgs e)
         {
             //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
+            string strSql = "SELECT * " +
                             "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id` " +
                             "ORDER BY `books`.`books_id`;";
 

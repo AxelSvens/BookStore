@@ -39,8 +39,7 @@ namespace BookStore
 
             //Anropa Stored Procuedure med det valda värdet -1's ID värde
             // SQL Querry för INSERT
-            string sqlQuerry = $"INSERT INTO `books`.`store_has_books` (`store_store_id`, `books_books_id`) " +
-                               $"VALUES({ListIndex}, {selectedID})";
+            string sqlQuerry = $"CALL AddBookToStore({ListIndex}, {selectedID})";
 
             // Skapa MySQLCOmmand objekt
             conn.Open();

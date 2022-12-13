@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace BookStore
 {
@@ -47,7 +48,6 @@ namespace BookStore
 
             Book.books.Clear();
 
-            //Använder en WhileLoop för att läsa varje rad
             while (reader.Read())
             {
                 new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
@@ -55,51 +55,46 @@ namespace BookStore
 
             conn.Close();
 
-            string bookTitle = txtTitle.Text;
-            string authorName = txtAuthor.Text;
-
-            int intBookId = Convert.ToInt32(txtBookId.Text);
-            int selectedID = Book.books[intBookId - 1].Id;
-
-            string sqlQue = $"SELECT author_id FROM author WHERE author_name = '{authorName}'";
-            MySqlCommand cmdb = new MySqlCommand(sqlQue, conn);
-
-            //Öppna kopplingen
-            conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader readera = cmdb.ExecuteReader();
-            int authorId = 0;
-
-            while (readera.Read())
+            try
             {
-                authorId = Convert.ToInt32(readera["author_id"]);
-            }
+                string authorName = txtAuthor.Text;
+                string sqlQue = $"SELECT author_id FROM author WHERE author_name = '{authorName}'";
+                MySqlCommand cmdb = new MySqlCommand(sqlQue, conn);
 
-            conn.Close();
+                conn.Open();
+                MySqlDataReader readera = cmdb.ExecuteReader();
+                int authorId = 0;
 
+                while (readera.Read())
+                {
+                    authorId = Convert.ToInt32(readera["author_id"]);
+                }
+
+                conn.Close();
 
             
-            // SQL Querry för UPDATE
+            
+                
+                string bookTitle = txtTitle.Text;
 
+                int intBookId = Convert.ToInt32(txtBookId.Text);
+                int selectedID = Book.books[intBookId - 1].Id;
 
-            string sqlQuerry = $"UPDATE `books` " +
-                               $"SET `books_title` = '{bookTitle}', `author_author_id` = '{authorId}' " +
-                               $"WHERE(`books_id` = {selectedID});";
+                string sqlQuerry = $"UPDATE `books` " +
+                                   $"SET `books_title` = '{bookTitle}', `author_author_id` = '{authorId}' " +
+                                   $"WHERE(`books_id` = {selectedID});";
 
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-            //MySqlCommand cmdb = new MySqlCommand(sqlQue, conn);
-
-            //Exekvera MySQLCommand.
-            //cmdb.ExecuteReader();
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
-            conn.Close();
-
-            this.Close();
+                conn.Open();
+                MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+                cmda.ExecuteReader();
+                conn.Close();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You need to enter all values");
+                conn.Close();
+            }
 
         }
 
