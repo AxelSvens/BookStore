@@ -18,14 +18,8 @@ namespace BookStore
         public AddBookToStoreForm()
         {
             InitializeComponent();
-             string server = "localhost";
-            string database = "books";
-            string user = "root";
-            string password = "2Va84y80xR64#%";
-
-
-            string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
-            conn = new MySqlConnection(connString);
+            SQL_Connection sqlConn = new SQL_Connection();
+            conn = new MySqlConnection(sqlConn.userCon());
         }
 
         private void btnBookAdd_Click(object sender, EventArgs e)

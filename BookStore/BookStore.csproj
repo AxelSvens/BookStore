@@ -128,6 +128,7 @@
     <Compile Include="Index.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL_Connection.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="StoreHasBooks.cs" />
     <Compile Include="UpdateBookOrAuthorForm.cs">
