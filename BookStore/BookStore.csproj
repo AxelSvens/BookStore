@@ -113,23 +113,17 @@
     <Compile Include="DeleteBookOrAuthorForm.Designer.cs">
       <DependentUpon>DeleteBookOrAuthorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteBooksInStoreForm.cs">
+    <Compile Include="DeleteBookInStoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteBooksInStoreForm.Designer.cs">
-      <DependentUpon>DeleteBooksInStoreForm.cs</DependentUpon>
+    <Compile Include="DeleteBookInStoreForm.Designer.cs">
+      <DependentUpon>DeleteBookInStoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="Index.cs" />
     <Compile Include="Program.cs" />
@@ -151,14 +145,11 @@
     <EmbeddedResource Include="DeleteBookOrAuthorForm.resx">
       <DependentUpon>DeleteBookOrAuthorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteBooksInStoreForm.resx">
-      <DependentUpon>DeleteBooksInStoreForm.cs</DependentUpon>
+    <EmbeddedResource Include="DeleteBookInStoreForm.resx">
+      <DependentUpon>DeleteBookInStoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

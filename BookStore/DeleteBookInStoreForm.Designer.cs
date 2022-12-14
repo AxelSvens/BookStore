@@ -1,6 +1,6 @@
 ﻿namespace BookStore
 {
-    partial class DeleteBooksInStoreForm
+    partial class DeleteBookInStoreForm
     {
         /// <summary>
         /// Required designer variable.
@@ -87,7 +87,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // DeleteBooksInStoreForm
+            // DeleteBookInStoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,8 +97,8 @@
             this.Controls.Add(this.lblBookId);
             this.Controls.Add(this.txtBookId);
             this.Controls.Add(this.lblRemoveBooks);
-            this.Name = "DeleteBooksInStoreForm";
-            this.Text = "DeleteBooksInStoreForm";
+            this.Name = "DeleteBookInStoreForm";
+            this.Text = "DeleteBookInStoreForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

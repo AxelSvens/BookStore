@@ -30,33 +30,33 @@ namespace BookStore
 
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
-            int ListIndex = Index.index[0];
+            //Hämtar id för en affär
+            int listIndex = Index.index[0];
 
-            int intBookId = Convert.ToInt32(txtBookId.Text);
+            //Hämtar värden från textBox
+            int bookId = Convert.ToInt32(txtBookId.Text);
 
-            //Hämta ID värdet av det valda objektet
-            int selectedID = Book.books[intBookId - 1].Id;
+            //Konverterar värde till ett id
+            int selectedID = Book.books[bookId - 1].Id;
 
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för INSERT
-            string sqlQuerry = $"INSERT INTO `books`.`store_has_books` (`store_store_id`, `books_books_id`) " +
-                               $"VALUES({ListIndex}, {selectedID})";
+            //SQL Querry
+            string strSql = $"CALL AddBookToStore({listIndex}, {selectedID})";
 
-            // Skapa MySQLCOmmand objekt
+            //Skapa MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
             conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
+            cmd.ExecuteReader();
             conn.Close();
 
+            //Stänger fönstret
             this.Close();
 
         }
          private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Stänger fönstret
             this.Close();
         }
     }

@@ -31,123 +31,84 @@ namespace BookStore
 
         private void btnBookUpdate_Click(object sender, EventArgs e)
         {
-            
-            //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id`;";
+            //Hämtar värden från textBox
+            string authorName = txtAuthor.Text;
 
-            //Skapa ett MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+            //SQL Querry
+            string sqlQuerry = $"CALL GetAuthorName('{authorName}')";
 
-            //Öppna kopplingen
-            conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            Book.books.Clear();
-
-            //Använder en WhileLoop för att läsa varje rad
-            while (reader.Read())
-            {
-
-                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
-            }
-
-            conn.Close();
-
-            //Användaren anger nummret Count för den bok de vill uppdatera.
-
-            string bookTitle = txtTitle.Text;
-            int authorId = Convert.ToInt32(txtAuthor.Text);
-
-            
-            int intBookId = Convert.ToInt32(txtBookId.Text);
-
-            //Hämta ID värdet av det valda objektet
-
-            int selectedID = Book.books[intBookId - 1].Id;
-            //int selectedAuthor = Author.authors[]
-
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för UPDATE
-            string sqlQuerry = $"UPDATE `books` " +
-                               $"SET `books_title` = '{bookTitle}', `author_author_id` = {authorId} " +
-                               $"WHERE(`books_id` = {selectedID});";
-
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
+            //Skapa MySQLCommand objekt
             MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
 
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
+            //Öppnar koppling till DB
+            conn.Open();
 
-            //Stänger kopplingen
+            //Exekvera MySQLCommand. Spara resultat i reader
+            MySqlDataReader reader = cmda.ExecuteReader();
+
+            //Skapar en variabel för att spara ett id
+            int authorId = 0;
+
+            //Lägga in id till authorId
+            while (reader.Read())
+            {
+                authorId = Convert.ToInt32(reader["author_id"]);
+            }
+
+            //Stänger koppling till DB
             conn.Close();
 
+            //Hämtar värden från textBox
+            string bookTitle = txtTitle.Text;
+            int bookId = Convert.ToInt32(txtBookId.Text);
+
+            //Konverterar värde till ett id
+            int selectedID = Book.books[bookId - 1].Id;
+
+            //SQL Querry
+            string strSql = $"CALL UpdateBookInDB('{bookTitle}', {authorId}, {selectedID})";
+
+            //Skapa MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+            conn.Open();
+            cmd.ExecuteReader();
+            conn.Close();
+
+            //Stänger fönstret
             this.Close();
 
         }
 
         private void btnAuthorUpdate_Click(object sender, EventArgs e)
         {
-            //Skriv SQL Select statement
-            string strSql = "SELECT `author`.`author_id`, `author`.`author_name` " +
-                            "FROM author;";
-
-            //Skapa ett MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
-
-            //Öppna kopplingen
-            conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            Author.authors.Clear();
-
-            //Använder en WhileLoop för att läsa varje rad
-            while (reader.Read())
-            {
-                new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
-            }
-
-            //Stänger kopplingen
-            conn.Close();
-
-            //Användaren anger nummret Count för den bok de vill uppdatera.
-
+            //Hämtar värden från textBox
             string authorName = txtAuthorName.Text;
             int authorId = Convert.ToInt32(txtAuthorId.Text);
 
-            //Hämta ID värdet av det valda objektet
-
+            //Konverterar värde till ett id
             int selectedID = Author.authors[authorId - 1].Id;
-            //int selectedAuthor = Author.authors[]
 
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för UPDATE
-            string sqlQuerry = $"UPDATE `books`.`author` " +
-                               $"SET `author_name` = '{authorName}' WHERE(`author_id` = {authorId});";
+            //SQL Querry
+            string sqlQuerry = $"CALL UpdateAuthorInDB('{authorName}', {selectedID});";
 
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
+            //Skapa MySQLCommand objekt
             MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
 
-            //Exekvera MySQLCommand.
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+            conn.Open();
             cmda.ExecuteReader();
-
-            //Stänger kopplingen
             conn.Close();
 
+            //Stänger fönstret
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Stänger fönstret
             this.Close();
         }
-
-
     }
 }

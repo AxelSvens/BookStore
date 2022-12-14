@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
-    public partial class DeleteBooksInStoreForm : Form
+    public partial class DeleteBookInStoreForm : Form
     {
         MySqlConnection conn;
-        public DeleteBooksInStoreForm()
+        public DeleteBookInStoreForm()
         {
             InitializeComponent();
             string server = "localhost";
@@ -32,33 +32,32 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-            //Användaren anger nummret Count för den person som den vill ta bort.
+            //Hämtar id för en affär
+            int listIndex = Index.index[0];
 
-            int ListIndex = Index.index[0];
-            
-            int intBookId = Convert.ToInt32(txtBookId.Text);
+            //Hämtar värden från textBox
+            int bookId = Convert.ToInt32(txtBookId.Text);
 
-            //Hämta ID värdet av det valda objektet
-            int selectedID = StoreHasBooks.storehasbooks[intBookId - 1].Books_BooksId;
+            //Konverterar värde till ett id
+            int selectedID = StoreHasBooks.storehasbooks[bookId - 1].Books_BooksId;
 
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för INSERT
-            string sqlQuerry = $"CALL DeleteBookInStore({ListIndex}, {selectedID});";
+            //SQL Querry
+            string strSql = $"CALL DeleteBookInStore({listIndex}, {selectedID});";
 
-            // Skapa MySQLCOmmand objekt
+            //Skapa MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
             conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
+            cmd.ExecuteReader();
             conn.Close();
 
+            //Stänger fönstret
             this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Stänger fönstret
             this.Close();
         }
 

@@ -30,61 +30,75 @@ namespace BookStore
 
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
-            //Hämta text från textfällt
-            string strTitle = txtTitle.Text;
-            int intAuthor = Convert.ToInt32(txtAuthor.Text);
+            //Hämtar värden från textBox
+            string authorName = txtAuthor.Text;
 
-            //Skriva SQL Insert statment
-            string strSql = $"INSERT INTO books " +
-                            $"(`books_title`, `author_author_id`) " +
-                            $"VALUES ('{strTitle}', {intAuthor})";
+            //SQL Querry
+            string sqlQuerry = $"CALL GetAuthorName('{authorName}')";
 
-            //Skapa en MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+            //Skapa MySQLCommand objekt
+            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
 
-            //Öppna koppling till Databas
+            //Öppnar koppling till DB
             conn.Open();
 
-            //Skicka iväg MySQLCommand till Databas
-            cmd.ExecuteReader();
+            //Exekvera MySQLCommand. Spara resultat i reader
+            MySqlDataReader reader = cmda.ExecuteReader();
 
-            //Stänga koppling till Databas
+            //Skapar en variabel för att spara ett id
+            int authorId = 0;
+
+            //Lägga in id till authorId
+            while (reader.Read())
+            {
+                authorId = Convert.ToInt32(reader["author_id"]);
+            }
+
+            //Stänger koppling till DB
             conn.Close();
 
-            //Stänga fönstret
+            //Hämtar värden från textBox
+            string bookTitle = txtTitle.Text;
+
+            //SQL Querry
+            string strSql = $"CALL AddBookToDB('{bookTitle}', {authorId})";
+
+            //Skapa MySQLCommand objekt
+            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+            conn.Open();
+            cmd.ExecuteReader();
+            conn.Close();
+
+            //Stänger fönstret
             this.Close();
         }
 
         private void btnAuthorAdd_Click(object sender, EventArgs e)
         {
-            //Hämta text från textfällt
-            string strName = txtAuthorName.Text;
+            //Hämtar värden från textBox
+            string authorName = txtAuthorName.Text;
 
-            //Skriva SQL Insert statment
-            string strSql = $"INSERT INTO author " +
-                            $"(`author_name`) " +
-                            $"VALUES ('{strName}')";
-
-            //Skapa en MySQLCommand objekt
+            //SQL Querry
+            string strSql = $"CALL AddAuthorToDB('{authorName}')";
+            
+            //Skapa MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppna koppling till Databas
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
             conn.Open();
-
-            //Skicka iväg MySQLCommand till Databas
             cmd.ExecuteReader();
-
-            //Stänga koppling till Databas
             conn.Close();
 
-            //Stänga fönstret
+            //Stänger fönstret
             this.Close();
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Stänger fönstret
             this.Close();
         }
-
-
     }
 }

@@ -30,104 +30,53 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
+            //Hämtar värden från textBox
+            int bookId = Convert.ToInt32(txtBookId.Text);
 
-            //Skriv SQL Select statement
-            string strSql = "SELECT `books`.`books_id`, `books`.`books_title`, `books`.`author_author_id`, `author`.`author_name` " +
-                            "FROM `books` JOIN `author` ON `books`.`author_author_id` = `author`.`author_id` " +
-                            "ORDER BY `books`.`books_id`;";
+            //Konverterar värde till ett id
+            int selectedID = Book.books[bookId - 1].Id;
 
+            //SQL Querry
+            string strSql = $"CALL DeleteBookInDB({selectedID});";
 
-            //Skapa ett MySQLCommand objekt
+            //Skapa MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppna kopplingen
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
             conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            Book.books.Clear();
-
-            //Använder en WhileLoop för att läsa varje rad
-            while (reader.Read())
-            {
-
-                new Book(Convert.ToInt32(reader["books_id"]), reader["books_title"].ToString(), Convert.ToInt32(reader["author_author_id"]));
-            }
-
+            cmd.ExecuteReader();
             conn.Close();
 
-            //Användaren anger nummret Count för den person som den vill ta bort.
-
-            int intBookId = Convert.ToInt32(txtBookId.Text);
-
-            //Hämta ID värdet av det valda objektet
-            int selectedID = Book.books[intBookId - 1].Id;
-
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för INSERT
-            string sqlQuerry = $"DELETE FROM `books` WHERE `books_id` = {selectedID};";
-
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
-            conn.Close();
-
+            //Stänger fönstret
             this.Close();
         }
 
         private void btnAuthorDelete_Click(object sender, EventArgs e)
         {
-            string strSql = "SELECT * FROM author;";
+            //Hämtar värden från textBox
+            int authorId = Convert.ToInt32(txtAuthorId.Text);
 
-            //Skapa ett MySQLCommand objekt
+            //Konverterar värde till ett id
+            int selectedId = Author.authors[authorId - 1].Id;
+
+            //SQL Querry
+            string strSql = $"CALL DeleteAuthorInDB({selectedId})";
+
+            //Skapa MySQLCommand objekt
             MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppna kopplingen
+            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
             conn.Open();
-
-            //Exekvera commando till DB
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            Author.authors.Clear();
-
-            //Använder en WhileLoop för att läsa varje rad
-            while (reader.Read())
-            {
-
-                new Author(Convert.ToInt32(reader["author_id"]), reader["author_name"].ToString());
-            }
-
+            cmd.ExecuteReader();
             conn.Close();
 
-            int intAuthorId = Convert.ToInt32(txtAuthorId.Text);
-
-            int selectedId = Author.authors[intAuthorId - 1].Id;
-
-            //Anropa Stored Procuedure med det valda värdet -1's ID värde
-            // SQL Querry för INSERT
-            string sqlQuerry = $"DELETE FROM `author` WHERE `author_id` = {selectedId};";
-
-            // Skapa MySQLCOmmand objekt
-            conn.Open();
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera MySQLCommand.
-            cmda.ExecuteReader();
-
-            //Stänger kopplingen
-            conn.Close();
-
+            //Stänger fönstret
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Stänger fönstret
             this.Close();
         }
     }
