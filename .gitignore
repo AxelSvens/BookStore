@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Individual SQL Connection Class 'SQL_Connection.cs'
+SQL_Connection.cs
