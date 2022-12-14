@@ -15,7 +15,7 @@ namespace BookStore
             string server = "localhost";
             string database = "books";
             string user = "root";
-            string password = "root9";
+            string password = "2Va84y80xR64#%";
 
 
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};";
