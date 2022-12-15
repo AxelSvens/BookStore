@@ -10,14 +10,6 @@ namespace BookStore
 
     internal class StoreHasBooks
     {
-
-        //Attribut
-        /*private int store_storeId;
-          private int books_booksId;
-        */
-
-
-
         //Properties
         public int Store_StoreId { get; set; }
         public int Books_BooksId { get; set; }

@@ -24,48 +24,62 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-            //Hämtar värden från textBox
-            int bookId = Convert.ToInt32(txtBookId.Text);
+            try
+            {
+                //Hämtar värden från textBox
+                int bookId = Convert.ToInt32(txtBookId.Text);
 
-            //Konverterar värde till ett id
-            int selectedID = Book.books[bookId - 1].Id;
+                //Konverterar värde till ett id
+                int selectedID = Book.books[bookId - 1].Id;
 
-            //SQL Querry
-            string strSql = $"CALL DeleteBookInDB({selectedID});";
+                //SQL Querry
+                string strSql = $"CALL DeleteBookInDB({selectedID});";
 
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
-            conn.Open();
-            cmd.ExecuteReader();
-            conn.Close();
+                //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+                conn.Open();
+                cmd.ExecuteReader();
+                conn.Close();
 
-            //Stänger fönstret
-            this.Close();
+                //Stänger fönstret
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please enter a valid id");
+            }
         }
 
         private void btnAuthorDelete_Click(object sender, EventArgs e)
         {
-            //Hämtar värden från textBox
-            int authorId = Convert.ToInt32(txtAuthorId.Text);
+            try
+            {
+                //Hämtar värden från textBox
+                int authorId = Convert.ToInt32(txtAuthorId.Text);
 
-            //Konverterar värde till ett id
-            int selectedId = Author.authors[authorId - 1].Id;
+                //Konverterar värde till ett id
+                int selectedId = Author.authors[authorId - 1].Id;
 
-            //SQL Querry
-            string strSql = $"CALL DeleteAuthorInDB({selectedId})";
+                //SQL Querry
+                string strSql = $"CALL DeleteAuthorInDB({selectedId})";
 
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
-            conn.Open();
-            cmd.ExecuteReader();
-            conn.Close();
+                //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+                conn.Open();
+                cmd.ExecuteReader();
+                conn.Close();
 
-            //Stänger fönstret
-            this.Close();
+                //Stänger fönstret
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please enter a valid id");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

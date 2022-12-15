@@ -26,78 +26,92 @@ namespace BookStore
 
         private void btnBookUpdate_Click(object sender, EventArgs e)
         {
-            //Hämtar värden från textBox
-            string authorName = txtAuthor.Text;
-
-            //SQL Querry
-            string sqlQuerry = $"CALL GetAuthorName('{authorName}')";
-
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
-
-            //Öppnar koppling till DB
-            conn.Open();
-
-            //Exekvera MySQLCommand. Spara resultat i reader
-            MySqlDataReader reader = cmda.ExecuteReader();
-
-            //Skapar en variabel för att spara ett id
-            int authorId = 0;
-
-            //Lägga in id till authorId
-            while (reader.Read())
+            try
             {
-                authorId = Convert.ToInt32(reader["author_id"]);
+                //Hämtar värden från textBox
+                string authorName = txtAuthor.Text;
+
+                //SQL Querry
+                string sqlQuerry = $"CALL GetAuthorName('{authorName}')";
+
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+
+                //Öppnar koppling till DB
+                conn.Open();
+
+                //Exekvera MySQLCommand. Spara resultat i reader
+                MySqlDataReader reader = cmda.ExecuteReader();
+
+                //Skapar en variabel för att spara ett id
+                int authorId = 0;
+
+                //Lägga in id till authorId
+                while (reader.Read())
+                {
+                    authorId = Convert.ToInt32(reader["author_id"]);
+                }
+
+                //Stänger koppling till DB
+                conn.Close();
+
+                //Hämtar värden från textBox
+                string bookTitle = txtTitle.Text;
+                int bookId = Convert.ToInt32(txtBookId.Text);
+
+                //Konverterar värde till ett id
+                int selectedID = Book.books[bookId - 1].Id;
+
+                //SQL Querry
+                string strSql = $"CALL UpdateBookInDB('{bookTitle}', {authorId}, {selectedID})";
+
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmd = new MySqlCommand(strSql, conn);
+
+                //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+                conn.Open();
+                cmd.ExecuteReader();
+                conn.Close();
+
+                //Stänger fönstret
+                this.Close();
             }
-
-            //Stänger koppling till DB
-            conn.Close();
-
-            //Hämtar värden från textBox
-            string bookTitle = txtTitle.Text;
-            int bookId = Convert.ToInt32(txtBookId.Text);
-
-            //Konverterar värde till ett id
-            int selectedID = Book.books[bookId - 1].Id;
-
-            //SQL Querry
-            string strSql = $"CALL UpdateBookInDB('{bookTitle}', {authorId}, {selectedID})";
-
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
-
-            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
-            conn.Open();
-            cmd.ExecuteReader();
-            conn.Close();
-
-            //Stänger fönstret
-            this.Close();
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("Please enter valid values");
+            }
 
         }
 
         private void btnAuthorUpdate_Click(object sender, EventArgs e)
         {
-            //Hämtar värden från textBox
-            string authorName = txtAuthorName.Text;
-            int authorId = Convert.ToInt32(txtAuthorId.Text);
+            try
+            {
+                //Hämtar värden från textBox
+                string authorName = txtAuthorName.Text;
+                int authorId = Convert.ToInt32(txtAuthorId.Text);
 
-            //Konverterar värde till ett id
-            int selectedID = Author.authors[authorId - 1].Id;
+                //Konverterar värde till ett id
+                int selectedID = Author.authors[authorId - 1].Id;
 
-            //SQL Querry
-            string sqlQuerry = $"CALL UpdateAuthorInDB('{authorName}', {selectedID});";
+                //SQL Querry
+                string sqlQuerry = $"CALL UpdateAuthorInDB('{authorName}', {selectedID});";
 
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmda = new MySqlCommand(sqlQuerry, conn);
 
-            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
-            conn.Open();
-            cmda.ExecuteReader();
-            conn.Close();
+                //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+                conn.Open();
+                cmda.ExecuteReader();
+                conn.Close();
 
-            //Stänger fönstret
-            this.Close();
+                //Stänger fönstret
+                this.Close();
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("Please enter valid values");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -25,28 +25,35 @@ namespace BookStore
 
         private void btnBookDelete_Click(object sender, EventArgs e)
         {
-            //Hämtar id för en affär
-            int listIndex = Index.index[0];
+            try
+            {
+                //Hämtar id för en affär
+                int listIndex = Index.index[0];
 
-            //Hämtar värden från textBox
-            int bookId = Convert.ToInt32(txtBookId.Text);
+                //Hämtar värden från textBox
+                int bookId = Convert.ToInt32(txtBookId.Text);
 
-            //Konverterar värde till ett id
-            int selectedID = StoreHasBooks.storehasbooks[bookId - 1].Books_BooksId;
+                //Konverterar värde till ett id
+                int selectedID = StoreHasBooks.storehasbooks[bookId - 1].Books_BooksId;
 
-            //SQL Querry
-            string strSql = $"CALL DeleteBookInStore({listIndex}, {selectedID});";
+                //SQL Querry
+                string strSql = $"CALL DeleteBookInStore({listIndex}, {selectedID});";
 
-            //Skapa MySQLCommand objekt
-            MySqlCommand cmd = new MySqlCommand(strSql, conn);
+                //Skapa MySQLCommand objekt
+                MySqlCommand cmd = new MySqlCommand(strSql, conn);
 
-            //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
-            conn.Open();
-            cmd.ExecuteReader();
-            conn.Close();
+                //Öppnar koppling till DB, Utför Querry, Stänger koppling till DB
+                conn.Open();
+                cmd.ExecuteReader();
+                conn.Close();
 
-            //Stänger fönstret
-            this.Close();
+                //Stänger fönstret
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter a valid id");
+            }
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {

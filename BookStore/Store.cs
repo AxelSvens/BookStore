@@ -8,14 +8,6 @@ namespace BookStore
 {
     internal class Store
     {
-
-        //Attribut
-        /*private int id;
-        private string name;
-        private int phoneNumber;
-        private string adress;*/
-
-
         //Properties
         public int Id { get; set; }
         public string Name { get; set; }

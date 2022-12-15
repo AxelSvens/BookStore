@@ -8,13 +8,6 @@ namespace BookStore
 {
     internal class Author
     {
-
-        //Attribut
-        /*private int id;
-        private string name;*/
-
-
-
         //Properties
         public int Id { get; set; }
         public string Name { get; set; }
