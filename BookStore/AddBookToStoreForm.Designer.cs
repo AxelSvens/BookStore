@@ -32,6 +32,7 @@
             this.btnBookAdd = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
             this.txtBookId = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAddBooks
@@ -74,11 +75,24 @@
             this.txtBookId.Size = new System.Drawing.Size(202, 31);
             this.txtBookId.TabIndex = 7;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(341, 160);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(95, 35);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // AddBookToStoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 208);
+            this.ClientSize = new System.Drawing.Size(471, 208);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblAddBooks);
             this.Controls.Add(this.btnBookAdd);
             this.Controls.Add(this.lblId);
@@ -96,5 +110,6 @@
         private System.Windows.Forms.Button btnBookAdd;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtBookId;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
